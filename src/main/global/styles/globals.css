@@ -1,0 +1,38 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.modal-content {
+  position: relative;
+  margin: auto;
+  padding: 20px;
+  background: white;
+  z-index: 1001;
+  width: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.PhoneInputCountry {
+  gap: 10px;
+}
+
+html[dir="ltr"] .PhoneInputCountry {
+  direction: rtl;
+}
+/* replace with tailwind config file (when refactoring) */
+@media (max-width: 1065px) {
+  .rooms-box {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+.rooms-box {
+  display: none;
+}

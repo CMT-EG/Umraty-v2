@@ -1,0 +1,7 @@
+{
+    "installCommand": "bun install",
+    "buildCommand": "bun run build",
+    "env": {
+        "NEXT_PUBLIC_API_URL": "https://umraty-apis.up.railway.app"
+    }
+}
