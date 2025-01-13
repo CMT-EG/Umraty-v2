@@ -1,10 +1,10 @@
 "use client";
-import requestHelpers from "@/lib/requestHelpers";
 import { useQuery } from "@tanstack/react-query";
 
 import React, { useState } from "react";
 import HeroSection from "./heroSection/HeroSection";
 import ReservationItem from "./reservationItem/ReservationItem";
+import requestHelpers from "@/main/common/shadcn/lib/requestHelpers";
 function Reservations() {
   const [currentTab, setCurrentTab] = useState<"present" | "past">("past");
   const { data } = useQuery({
@@ -21,7 +21,7 @@ function Reservations() {
         <div className="flex flex-col gap-8">
           <div className="self-stretch flex flex-col items-stretch gap-11">
             {data?.map((item: any) => (
-              <ReservationItem bookingData={item} />
+              <ReservationItem key={item?.id} bookingData={item} />
             ))}
           </div>
         </div>

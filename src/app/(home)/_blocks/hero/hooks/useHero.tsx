@@ -71,15 +71,15 @@ export default function useHero() {
 
   const handleDateChange = async (
     date: any,
-    setDate: Function,
-    setTime: Function,
-    setAvailableTimes: Function,
+    setDate: any,
+    setTime: any,
+    setAvailableTimes: any,
     type: string,
     point: string,
     destination?: string,
-    setDestination?: Function,
+    setDestination?: any,
     arrivalLocation?: string,
-    setArrivalLocation?: Function
+    setArrivalLocation?: any
   ) => {
     setDate(date);
     setDestination?.(destination);
@@ -101,9 +101,9 @@ export default function useHero() {
 
   const handleArrival = async (
     date: any,
-    setDate: Function,
-    setTime: Function,
-    setAvailableTimes: Function,
+    setDate: any,
+    setTime: any,
+    setAvailableTimes: any,
     type: string,
     point: string,
     arrivalLocation: string
@@ -114,9 +114,9 @@ export default function useHero() {
 
   const handleDestination = async (
     date: string,
-    setDate: Function,
-    setTime: Function,
-    setAvailableTimes: Function,
+    setDate: any,
+    setTime: any,
+    setAvailableTimes: any,
     type: string,
     point: string,
     destination: string

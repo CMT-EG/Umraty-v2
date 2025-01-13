@@ -101,7 +101,7 @@ textarea {
 ::-webkit-scrollbar-thumb {
   @apply bg-primary;
   @apply rounded-2xl;
-  @apply shadow-scrollbar;
+  /* @apply shadow-scrollbar; */
 }
 
 ::selection {

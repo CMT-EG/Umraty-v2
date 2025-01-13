@@ -1,7 +1,7 @@
 "use client";
 
 import { SignInFrame } from "@/app/(auth)/shared/_blocks/signInFrame/SignInFrame";
-import Header from "@/main/common/components/header/header";
+import Header from "@/main/common/components/header/Header";
 import { useRouter } from "next/navigation";
 
 export default function SignInComponent() {

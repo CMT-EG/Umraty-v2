@@ -10,7 +10,7 @@ import FirstStep from "./_blocks/firstStep/FirstStep";
 import { API_ROOT } from "@/main/global/env/variablesEnv";
 import requestHelpers from "@/main/common/shadcn/lib/requestHelpers";
 import { PersonIcon } from "@/main/global/assets/svg/PersonIcon";
-
+import roomImg from "@/main/global/assets/images/room-image.png";
 function StepsContainer({
   currentStep,
   setCurrentStep,
@@ -48,7 +48,7 @@ function StepsContainer({
     if (!token) {
       setLoginDialogOpen(true);
     }
-  }, [token]);
+  }, [token, setLoginDialogOpen]);
   const searchParams = useSearchParams();
   const needHotel = searchParams.get("hotel");
   // const payment = new GeideaCheckout()
@@ -110,7 +110,7 @@ function StepsContainer({
           {needHotel == "true" && (
             <div className="flex gap-5">
               <Image
-                src="/room-image.png"
+                src={roomImg}
                 alt="room"
                 width={120}
                 height={120}

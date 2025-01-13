@@ -1,10 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import { BsInstagram, BsWhatsapp } from "react-icons/bs";
-import Logo from "@/assets/Aletqan-Logo.png";
+import Logo from "@/main/global/assets/logo/Aletqan-Logo.png";
 import { QuotesIcon } from "@/main/global/assets/svg/QuotesIcon";
 import { SMSTrackingIcon } from "@/main/global/assets/svg/SMSTrackingIcon";
-
+import mosqueImg from "@/main/global/assets/images/mosque.svg";
 export default function Footer() {
   return (
     <footer className='relative overflow-hidden sm:px-20 px-5 bg-[#262626] text-white flex flex-col items-stretch  top-[282px] sm:top-[125px] '>
@@ -80,7 +80,7 @@ export default function Footer() {
         </p>
       </div>
       <Image
-        src={"/mosque.svg"}
+        src={mosqueImg}
         width={300}
         height={315}
         alt='mosque'

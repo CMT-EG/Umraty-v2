@@ -38,7 +38,7 @@ function Reservation() {
 
   const searchParams = useSearchParams();
   const isFinalStep = !!searchParams.get("is_final");
-  const hotelInfoRequired = searchParams.get("hotel") === "true";
+  // const hotelInfoRequired = searchParams.get("hotel") === "true";
 
   const [currentStep, setCurrentStep] = useState(isFinalStep ? 4 : 1);
   const [cards, setCards] = useState<creditCardType[]>([
@@ -94,13 +94,13 @@ function Reservation() {
     setCards((lastValue) => [...lastValue, card]);
   };
 
-  const [startDate, setStartDate] = useState<Date | null>(() => {
+  const [startDate, _setStartDate] = useState<Date | null>(() => {
     const storedStartDate =
       typeof window !== "undefined" ? localStorage.getItem("startDate") : null;
     return storedStartDate ? new Date(JSON.parse(storedStartDate)) : null;
   });
 
-  const [finishDate, setFinishDate] = useState<Date | null>(() => {
+  const [finishDate, _setFinishDate] = useState<Date | null>(() => {
     const storedFinishDate =
       typeof window !== "undefined" ? localStorage.getItem("finishDate") : null;
     return storedFinishDate ? new Date(JSON.parse(storedFinishDate)) : null;
@@ -186,23 +186,23 @@ function Reservation() {
   const roundedTaxAmount = roundToTwoDecimals(taxAmount);
   const roundedSubtotal = roundToTwoDecimals(subtotal);
 
-  const [tripNumber, setTripNumber] = useState<string>(
+  const [tripNumber, _setTripNumber] = useState<string>(
     localStorage.getItem("tripNumber") || ""
   );
 
-  const [arrivalTime, setArrivalTime] = useState<string>(
+  const [arrivalTime, _setArrivalTime] = useState<string>(
     localStorage.getItem("arrivalTime") || ""
   );
 
-  const [departureTime, setDepartureTime] = useState<string>(
+  const [departureTime, _setDepartureTime] = useState<string>(
     localStorage.getItem("departureTime") || ""
   );
 
-  const [arrivalLocation, setArrivalLocation] = useState<string>(
+  const [arrivalLocation, _setArrivalLocation] = useState<string>(
     localStorage.getItem("arrivalLocation") || ""
   );
 
-  const [destination, setDestination] = useState<string>(
+  const [destination, _setDestination] = useState<string>(
     localStorage.getItem("destination") || ""
   );
 
@@ -286,7 +286,7 @@ function Reservation() {
           toast({
             variant: "default",
             title: "تم تأكيد الحجز بنجاح",
-          })
+          });
           // toast.success("تم تأكيد الحجز بنجاح");
           router.replace("/");
         }
@@ -356,7 +356,7 @@ function Reservation() {
       }));
       setPassengers(initialPassengers);
     }
-  }, [passengersCount]);
+  }, [passengersCount, passengers.length]);
 
   return (
     <>

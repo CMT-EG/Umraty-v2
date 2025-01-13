@@ -5,7 +5,8 @@ import { getCookie, setCookie } from "cookies-next/client";
 import { API_ROOT } from "@/main/global/env/variablesEnv";
 import { getTokenExpiration } from "../../utils/auth";
 
-let accessToken = getCookie("accessToken") ? getCookie("accessToken") : "";
+// Use `const` since `accessToken` is never reassigned
+const accessToken = getCookie("accessToken") ? getCookie("accessToken") : "";
 const refreshToken = getCookie("refresh") ? getCookie("refresh") : "";
 
 // Create axios instance with base URL

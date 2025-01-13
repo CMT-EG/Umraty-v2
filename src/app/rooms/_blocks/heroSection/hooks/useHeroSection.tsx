@@ -4,53 +4,39 @@ import { API_ROOT } from "@/main/global/env/variablesEnv";
 import { useState } from "react";
 
 export default function useHeroSection() {
-  const [startDate, setStartDate] = useState<any>(
-    localStorage.getItem("startDate")
-      ? new Date(JSON.parse(localStorage?.getItem("startDate")!))
-      : null
-  );
+  const [startDate, setStartDate] = useState<Date | undefined>(() => {
+    const storedStartDate = localStorage.getItem("startDate");
+    return storedStartDate ? new Date(JSON.parse(storedStartDate)) : undefined;
+  });
 
-  const [finishDate, setFinishDate] = useState<any>(
-    localStorage.getItem("finishDate")
-      ? new Date(JSON.parse(localStorage?.getItem("finishDate")!))
-      : null
-  );
+  const [finishDate, setFinishDate] = useState<Date | undefined>(() => {
+    const storedFinishDate = localStorage.getItem("finishDate");
+    return storedFinishDate ? new Date(JSON.parse(storedFinishDate)) : undefined;
+  });
 
   const onSearch = async () => {
     if (!startDate || !finishDate) {
       toast({
         variant: "destructive",
         title: "من فضلك ادخل تاريخ الذهاب والعودة!",
-      })
-      // toast.warn("من فضلك ادخل تاريخ الذهاب والعودة!");
+      });
       return;
     }
 
-    // Store in localStorage in UTC
-    localStorage.setItem("startDate", JSON.stringify(startDate!.toISOString()));
-    localStorage.setItem(
-      "finishDate",
-      JSON.stringify(finishDate!.toISOString())
-    );
+    localStorage.setItem("startDate", JSON.stringify(startDate.toISOString()));
+    localStorage.setItem("finishDate", JSON.stringify(finishDate.toISOString()));
 
-    // Format the dates to 'YYYY-MM-DD' in UTC
-    const formattedStartDate = `${startDate!.getUTCFullYear()}-${(
-      startDate!.getUTCMonth() + 1
+    const formattedStartDate = `${startDate.getUTCFullYear()}-${(
+      startDate.getUTCMonth() + 1
     )
       .toString()
-      .padStart(2, "0")}-${startDate!
-      .getUTCDate()
-      .toString()
-      .padStart(2, "0")}`;
+      .padStart(2, "0")}-${startDate.getUTCDate().toString().padStart(2, "0")}`;
 
-    const formattedFinishDate = `${finishDate!.getUTCFullYear()}-${(
-      finishDate!.getUTCMonth() + 1
+    const formattedFinishDate = `${finishDate.getUTCFullYear()}-${(
+      finishDate.getUTCMonth() + 1
     )
       .toString()
-      .padStart(2, "0")}-${finishDate!
-      .getUTCDate()
-      .toString()
-      .padStart(2, "0")}`;
+      .padStart(2, "0")}-${finishDate.getUTCDate().toString().padStart(2, "0")}`;
 
     const passengers = JSON.parse(localStorage.getItem("passengers") || "");
     try {
@@ -64,12 +50,9 @@ export default function useHeroSection() {
         toast({
           variant: "default",
           title: res?.message,
-        })
-        // toast.info(res?.message);
+        });
       } else {
         const newUrl = `/rooms?date_from=${formattedStartDate}&date_to=${formattedFinishDate}`;
-
-        // Update the browser's location to the new URL, which will reload the page
         window.location.href = newUrl;
       }
       console.log(res);
@@ -77,9 +60,9 @@ export default function useHeroSection() {
       toast({
         variant: "destructive",
         title: error.message,
-      })
-      // toast.error(`${error.message}`);
+      });
     }
   };
+
   return { onSearch, setFinishDate, finishDate, setStartDate, startDate };
 }

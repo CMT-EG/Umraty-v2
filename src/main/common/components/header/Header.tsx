@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { Button } from "@/main/common/shadcn/ui/button";
 import { cn } from "@/main/common/shadcn/lib/utils";
 import { getCookie, deleteCookie } from "cookies-next/client";
+import logo from "@/main/global/assets/logo/logo.webp";
 
 export default function Header({
   variant = "white",
@@ -42,7 +43,7 @@ export default function Header({
     >
       <div className="flex items-center">
         <Image
-          src={"/logo.webp"}
+          src={logo}
           width={276}
           height={128}
           className={`md:h-16 h-11 w-fit sm:me-5 md:me-8 ${

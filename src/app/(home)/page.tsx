@@ -1,6 +1,5 @@
-import Header from "@/main/common/components/header/header";
+import Header from "@/main/common/components/header/Header";
 import Hero from "./_blocks/hero/Hero";
-import "@/main/global/styles/globals.css";
 import Footer from "@/main/common/components/footer/Footer";
 
 export default function Home() {

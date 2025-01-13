@@ -161,7 +161,7 @@ function Hero() {
                 className="flex-grow"
                 placeholder="تاريخ العودة"
                 date={finishDate}
-                onChange={(date) =>
+                onChange={(date: any) =>
                   handleDateChange(
                     date,
                     setFinishDate,

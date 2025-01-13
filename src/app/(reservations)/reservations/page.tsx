@@ -1,6 +1,6 @@
-import Footer from "@/components/footer";
-import Header from "@/components/header";
 import Reservations from "./_blocks/Reservations";
+import Header from "@/main/common/components/header/Header";
+import Footer from "@/main/common/components/footer/Footer";
 
 export default function Page() {
   return (

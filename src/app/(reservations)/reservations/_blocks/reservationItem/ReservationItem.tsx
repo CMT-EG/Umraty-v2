@@ -8,6 +8,9 @@ import { cn } from "@/main/common/shadcn/lib/utils";
 import { MapIcon } from "@/main/global/assets/svg/MapIcon";
 import { HotelTimeIcon } from "@/main/global/assets/svg/HotelTimeIcon";
 import { PersonIcon } from "@/main/global/assets/svg/PersonIcon";
+import serviceImg1 from "@/main/global/assets/images/service-1.jpg";
+// import serviceImg2 from "@/main/global/assets/images/service-2.jpg";
+// import serviceImg3 from "@/main/global/assets/images/service-3.jpg";
 
 function ReservationItem({ className, bookingData, ...props }: any) {
   const {endDate, startDate, onPayBooking, handleDelete} = useReservationItem({ bookingData });
@@ -28,7 +31,7 @@ function ReservationItem({ className, bookingData, ...props }: any) {
       <div className='flex gap-2 mb-3 justify-between'>
         <div className='flex gap-[10px]'>
           <Image
-            src={"/service-1.jpg"}
+            src={serviceImg1}
             width={80}
             height={80}
             alt='room'

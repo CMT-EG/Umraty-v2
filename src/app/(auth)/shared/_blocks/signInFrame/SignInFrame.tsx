@@ -10,6 +10,8 @@ import requestHelpers from "@/main/common/shadcn/lib/requestHelpers";
 import PhoneInput from "@/main/common/components/phoneInput/PhoneInput";
 import { cn } from "@/main/common/shadcn/lib/utils";
 import { phoneSchema } from "../../schema/phoneSchema";
+import logoColoredImg from "@/main/global/assets/images/logo-colored.png";
+
 export function SignInFrame({
   onSuccess,
   className,
@@ -55,7 +57,7 @@ export function SignInFrame({
     >
       <div className="w-full max-w-xl md:py-20 py-10 px-8 bg-white rounded-[1.25rem] flex flex-col items-center">
         <Image
-          src={"/logo-colored.png"}
+          src={logoColoredImg}
           width={424}
           height={196}
           alt="Logo"

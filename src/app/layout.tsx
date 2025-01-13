@@ -1,8 +1,9 @@
 import { Alexandria, Almarai } from "next/font/google";
-import "@/main/global/styles/globals.css";
-import "react-toastify/dist/ReactToastify.css";
 import Providers from "@/main/global/providers/Providers";
 import TopBar from "@/main/common/components/topBar/TopBar";
+import "react-day-picker/dist/style.css";
+import "@/main/global/styles/tailwind.css";
+import "@/main/global/styles/globals.css";
 
 const alexandria = Alexandria({
   variable: "--font-alexandria",
@@ -20,7 +21,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='ar' dir='rtl'>
+    <html lang="ar" dir="rtl">
       <body
         className={`${alexandria.variable} ${almarai.variable} font-almarai antialiased min-h-svh flex flex-col items-stretch`}
       >

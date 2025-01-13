@@ -5,6 +5,7 @@ import { useSearchParams } from "next/navigation";
 import { formatDateToArabic } from "@/main/common/utils/date";
 import { MapIcon } from "@/main/global/assets/svg/MapIcon";
 import { HotelTimeIcon } from "@/main/global/assets/svg/HotelTimeIcon";
+import roomImg from "@/main/global/assets/images/room-image.png";
 
 function HotelInfo({ hotelData }: any) {
   const [startDate] = useState<Date | null>(() => {
@@ -28,7 +29,7 @@ function HotelInfo({ hotelData }: any) {
       {needHotel == "true" && (
         <div className="flex gap-2 p-2 border rounded-2xl mb-5">
           <Image
-            src="/room-image.png"
+            src={roomImg}
             width={80}
             height={80}
             alt="room"

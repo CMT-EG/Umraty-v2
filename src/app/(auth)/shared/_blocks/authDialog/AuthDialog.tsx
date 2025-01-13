@@ -1,6 +1,5 @@
 "use client";
 
-
 import React, { useState } from "react";
 import { Dialog, DialogContent } from "@/main/common/shadcn/ui/dialog";
 import { OTPFrame } from "../otpFrame/OtpFrame";

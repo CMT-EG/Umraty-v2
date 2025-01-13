@@ -1,4 +1,3 @@
-"use client";
 
 import * as React from "react";
 import { Popover, PopoverContent, PopoverTrigger } from "../../shadcn/ui/popover";
@@ -7,16 +6,19 @@ import { CalenderIcon } from "@/main/global/assets/svg/CalenderIcon";
 import { Calendar } from "../../shadcn/ui/calendar";
 import { formatDate } from "../../utils/date";
 
-export function DatePicker({
-  placeholder,
-  className: _className,
-  date,
-  onChange,
-}: React.HTMLAttributes<HTMLDivElement> & {
+interface DatePickerProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {
   placeholder: string;
   date: Date | undefined;
-  onChange: (_value: Date | undefined) => any;
-}) {
+  onChange: (value: Date | undefined) => void;
+}
+
+export function DatePicker({
+  placeholder,
+  className,
+  date,
+  onChange,
+  ...props
+}: DatePickerProps) {
   const today = new Date();
   today.setHours(0, 0, 0, 0);
 
@@ -28,20 +30,22 @@ export function DatePicker({
             "flex items-center px-2.5 h-14 bg-neural-50 rounded-xl flex-grow",
             placeholder
           )}
+          {...props}
         >
-          <CalenderIcon className='size-4 me-2 shrink-0 grow-0' />
-          <span className='text-sm text-neutral-600 w-fit shrink-0 grow-0'>
+          <CalenderIcon className="size-4 me-2 shrink-0 grow-0" />
+          <span className="text-sm text-neutral-600 w-fit shrink-0 grow-0">
             {date ? formatDate(date) : placeholder}
           </span>
         </div>
       </PopoverTrigger>
-      <PopoverContent className='w-auto p-0'>
+      <PopoverContent className="w-auto p-0">
         <Calendar
-          mode='single'
+          mode="single"
           selected={date}
           onSelect={onChange}
           initialFocus
-          disabled={(day) => day < today} // Disable previous days
+          disabled={(day) => day < today}
+          className={className}
         />
       </PopoverContent>
     </Popover>

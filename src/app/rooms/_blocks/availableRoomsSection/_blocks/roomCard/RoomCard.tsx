@@ -13,6 +13,7 @@ import { API_ROOT } from "@/main/global/env/variablesEnv";
 import { useQuery } from "@tanstack/react-query";
 import { Minus, Plus } from "lucide-react";
 import Image from "next/image";
+import roomImg from "@/main/global/assets/images/room-image.png";
 
 type RoomsStateType = {
   [key: number]: {
@@ -70,7 +71,7 @@ function RoomCard({
   return (
     <div className="flex-grow rounded-[0.5rem] overflow-hidden flex sm:gap-4 gap-2 bg-white shadow-[-4px_2px_20px_0px] shadow-[#5E5E5E]/10">
       <Image
-        src="/room-image.png"
+        src={roomImg}
         alt="room"
         width={226}
         height={273}
