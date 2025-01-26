@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Dialog, DialogContent } from "@/main/common/shadcn/ui/dialog";
+import { Dialog, DialogContent } from "@/global/shadcn/ui/dialog";
 import { OTPFrame } from "../otpFrame/OtpFrame";
 import { SignInFrame } from "../signInFrame/SignInFrame";
 

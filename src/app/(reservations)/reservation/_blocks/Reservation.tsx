@@ -1,18 +1,18 @@
 "use client";
-import { Button } from "@/main/common/shadcn/ui/button";
+import { Button } from "@/global/shadcn/ui/button";
 import { useEffect, useState } from "react";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import HeroSection from "./_blocks/heroSection/HeroSection";
 import StepsContainer from "./_blocks/stepsContainer/StepsContainer";
-import { API_ROOT } from "@/main/global/env/variablesEnv";
-import { roundToTwoDecimals } from "@/main/common/utils/numbers";
-import { InfoCheckIcon } from "@/main/global/assets/svg/InfoCheckIcon";
+import { API_ROOT } from "@/global/env/variablesEnv";
+import { roundToTwoDecimals } from "@/global/utils/numbers";
+import { InfoCheckIcon } from "@/global/assets/svg/InfoCheckIcon";
 import { AuthDialog } from "@/app/(auth)/shared/_blocks/authDialog/AuthDialog";
 import { creditCardType } from "./_blocks/stepsContainer/_blocks/thirdStep/ThirdStep";
-import requestHelpers from "@/main/common/shadcn/lib/requestHelpers";
-import { toast } from "@/main/common/shadcn/hooks/use-toast";
+import requestHelpers from "@/global/shadcn/lib/requestHelpers";
+import { toast } from "@/global/shadcn/hooks/use-toast";
 import { getCookie } from "cookies-next/client";
 
 interface TravelerInfo {

@@ -1,6 +1,6 @@
-import { toast } from "@/main/common/shadcn/hooks/use-toast";
-import requestHelpers from "@/main/common/shadcn/lib/requestHelpers";
-import { API_ROOT } from "@/main/global/env/variablesEnv";
+import { toast } from "@/global/shadcn/hooks/use-toast";
+import requestHelpers from "@/global/shadcn/lib/requestHelpers";
+import { API_ROOT } from "@/global/env/variablesEnv";
 import { useQuery } from "@tanstack/react-query";
 import { useSearchParams } from "next/navigation";
 import { useState } from "react";
@@ -91,7 +91,7 @@ export default function useRoomsComponent() {
       toast({
         variant: "destructive",
         title: "من فضلك اختار الغرف",
-      })
+      });
       // toast.warn("من فضلك اختار الغرف");
     } else {
       window.location.href = "/reservation?hotel=true";

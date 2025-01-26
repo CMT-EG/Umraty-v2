@@ -1,12 +1,13 @@
 "use client";
 
-import { DatePicker } from "@/main/common/components/datePicker/DatePicker";
-import { Button } from "@/main/common/shadcn/ui/button";
+import { DatePicker } from "@/global/components/datePicker/DatePicker";
+import { Button } from "@/global/shadcn/ui/button";
 import { ArrowLeftRight } from "lucide-react";
 import useHeroSection from "./hooks/useHeroSection";
 
 function HeroSection() {
-  const { onSearch, setFinishDate, finishDate, setStartDate, startDate } = useHeroSection();
+  const { onSearch, setFinishDate, finishDate, setStartDate, startDate } =
+    useHeroSection();
 
   return (
     <section className="bg-rooms-background bg-center bg-cover mb-[9rem]">

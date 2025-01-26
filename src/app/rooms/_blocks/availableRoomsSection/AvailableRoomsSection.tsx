@@ -1,9 +1,9 @@
 "use client";
 
-import { Button } from "@/main/common/shadcn/ui/button";
+import { Button } from "@/global/shadcn/ui/button";
 import RoomCard from "./_blocks/roomCard/RoomCard";
-import { MapIcon } from "@/main/global/assets/svg/MapIcon";
-import useMediaQuery from "@/main/common/hooks/mediaQuery/useMediaQuery";
+import { MapIcon } from "@/global/assets/svg/MapIcon";
+import useMediaQuery from "@/global/hooks/mediaQuery/useMediaQuery";
 
 type RoomsStateType = {
   [key: number]: {

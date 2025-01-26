@@ -1,4 +1,4 @@
-import { validateCreditCardNumber } from "@/main/common/utils/creditCards";
+import { validateCreditCardNumber } from "@/global/utils/creditCards";
 import { z } from "zod";
 
 export const creditCardSchema = z.object({

@@ -6,6 +6,21 @@ export default {
   darkMode: ["class"],
   content: ["./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
+    container: {
+      center: true,
+      padding: {
+        // DEFAULT: "1rem",
+        // sm: "2rem",
+        // lg: "4rem",
+        // xl: "5rem",
+        // "2xl": "6rem",
+        DEFAULT: "1rem",
+        sm: "1rem",
+        lg: "2rem",
+        xl: "3rem",
+        "2xl": "4rem",
+      },
+    },
     extend: {
       colors: {
         background: "hsl(var(--background))",
@@ -86,6 +101,9 @@ export default {
         "sign-in-background": 'url("/login_background.avif")',
         "hero-background": 'url("/hero_background.avif")',
         "rooms-background": 'url("/rooms_background.avif")',
+      },
+      boxShadow: {
+        "3d": "rgba(0, 0, 0, 0.3) 0px 1px 2px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset"
       },
       keyframes: {
         "accordion-down": {

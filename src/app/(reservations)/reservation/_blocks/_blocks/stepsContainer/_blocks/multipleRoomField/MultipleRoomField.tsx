@@ -5,11 +5,11 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/main/common/shadcn/ui/accordion";
+} from "@/global/shadcn/ui/accordion";
 import { IdCard, MapPinHouse } from "lucide-react";
 import { useSearchParams } from "next/navigation";
 import InputField from "./_blocks/inputField/InputField";
-import { PersonIcon } from "@/main/global/assets/svg/PersonIcon";
+import { PersonIcon } from "@/global/assets/svg/PersonIcon";
 
 interface TravelerInfo {
   full_name: string;

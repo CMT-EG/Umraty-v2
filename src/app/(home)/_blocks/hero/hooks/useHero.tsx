@@ -1,11 +1,11 @@
 "use client";
 
-import requestHelpers from "@/main/common/shadcn/lib/requestHelpers";
+import requestHelpers from "@/global/shadcn/lib/requestHelpers";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { toast } from "@/main/common/shadcn/hooks/use-toast";
-import { API_ROOT } from "@/main/global/env/variablesEnv";
+import { toast } from "@/global/shadcn/hooks/use-toast";
+import { API_ROOT } from "@/global/env/variablesEnv";
 
 export default function useHero() {
   const [startDate, setStartDate] = useState<any>(null);
@@ -60,7 +60,7 @@ export default function useHero() {
         variant: "destructive",
         color: "white",
         title: "خطأ أثناء جلب المواعيد المتاحة!",
-      })
+      });
       // toast.error("خطأ أثناء جلب المواعيد المتاحة!");
       return [];
     } finally {
@@ -195,7 +195,7 @@ export default function useHero() {
           variant: "destructive",
           color: "white",
           title: "من فضلك ادخل جميع المعلومات المطلوبة!",
-        })
+        });
         // toast.warn("من فضلك ادخل جميع المعلومات المطلوبة!");
         return;
       }
@@ -238,7 +238,7 @@ export default function useHero() {
           toast({
             variant: "default",
             title: res?.message,
-          })
+          });
           // toast.info(res?.message);
         } else {
           router.push("/reservation?hotel=false");
@@ -250,7 +250,7 @@ export default function useHero() {
           variant: "destructive",
           color: "white",
           title: error?.message,
-        })
+        });
         // toast.error(`${error.message}`);
       }
     }

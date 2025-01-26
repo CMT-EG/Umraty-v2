@@ -1,19 +1,23 @@
 "use client";
-import { Button } from "@/main/common/shadcn/ui/button";
+import { Button } from "@/global/shadcn/ui/button";
 import React, { useEffect, useState, useCallback } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Loader2 } from "lucide-react";
 import { BsChatLeftDots } from "react-icons/bs";
 import Link from "next/link";
-import { InputOTP, InputOTPGroup, InputOTPSlot } from "@/main/common/components/inputOtp/InputOtp";
-import { API_ROOT } from "@/main/global/env/variablesEnv";
-import { z } from "zod";
-import { otpSchema } from "../../schema/otpSchema";
-import requestHelpers from "@/main/common/shadcn/lib/requestHelpers";
+import {
+  InputOTP,
+  InputOTPGroup,
+  InputOTPSlot,
+} from "@/global/compon@/global/shadcn/lib/requestHelpers
+import { API_ROOT } from "@/global/env/variablesEnv";
+import { z } from "zod"@/global/shadcn/hooks/use-toast
+import { otpSchema } from ".@/global/utils/date
+import requestHelpers from "@/common/shadcn/lib/requestHelpers";
 import { setCookie } from "cookies-next/client";
-import { toast } from "@/main/common/shadcn/hooks/use-toast";
-import { formatTime } from "@/main/common/utils/date";
+import { toast } from "@/common/shadcn/hooks/use-toast";
+import { formatTime } from "@/common/utils/date";
 
 type otpSchemaType = z.infer<typeof otpSchema>;
 
@@ -53,12 +57,9 @@ export function OTPFrame({
 
   async function resendCode() {
     setCodeLoading(true);
-    await requestHelpers.postData(
-      `${API_ROOT}/auth/customer/send-otp/`,
-      {
-        phone_number: phoneNumber,
-      }
-    );
+    await requestHelpers.postData(`${API_ROOT}/auth/customer/send-otp/`, {
+      phone_number: phoneNumber,
+    });
     setCountdown(10);
     setCodeLoading(false);
   }
@@ -126,18 +127,33 @@ export function OTPFrame({
           control={control}
           name="code"
           render={({ field }) => (
-            <InputOTP maxLength={6} value={field.value} onChange={field.onChange}>
+            <InputOTP
+              maxLength={6}
+              value={field.value}
+              onChange={field.onChange}
+            >
               <InputOTPGroup className="gap-2">
                 {[0, 1, 2, 3, 4, 5].map((index) => (
-                  <InputOTPSlot key={index} index={index} className="sm:size-16" />
+                  <InputOTPSlot
+                    key={index}
+                    index={index}
+                    className="sm:size-16"
+                  />
                 ))}
               </InputOTPGroup>
             </InputOTP>
           )}
         />
-        {errors.code && <p className="text-red-500 text-sm">{errors.code.message}</p>}
+        {errors.code && (
+          <p className="text-red-500 text-sm">{errors.code.message}</p>
+        )}
       </div>
-      <Button className="w-full mb-3" size={"lg"} disabled={loading} type="submit">
+      <Button
+        className="w-full mb-3"
+        size={"lg"}
+        disabled={loading}
+        type="submit"
+      >
         {loading ? <Loader2 className="size-5 animate-spin" /> : "تأكيد"}
       </Button>
 
@@ -145,12 +161,16 @@ export function OTPFrame({
         <Link href={"/sign-in"}> العودة لتسجيل البيانات</Link>
       </Button>
       {globalErrorMessage && (
-        <p className="text-red-500 text-sm text-center py-2">{globalErrorMessage}</p>
+        <p className="text-red-500 text-sm text-center py-2">
+          {globalErrorMessage}
+        </p>
       )}
       {countDown > 0 && (
         <p className="text-neural-500 text-sm">
           يرجى محاولة إرسال رمز مرة اخرى بعد{" "}
-          <span className="text-primary-600 font-bold">{formatTime(countDown)}</span>
+          <span className="text-primary-600 font-bold">
+            {formatTime(countDown)}
+          </span>
         </p>
       )}
       {countDown === 0 && (
@@ -160,7 +180,11 @@ export function OTPFrame({
           }`}
           onClick={resendCode}
         >
-          {codeLoading ? <Loader2 className="size-4 animate-spin" /> : "ارسال رمز جديد"}
+          {codeLoading ? (
+            <Loader2 className="size-4 animate-spin" />
+          ) : (
+            "ارسال رمز جديد"
+          )}
         </p>
       )}
     </form>

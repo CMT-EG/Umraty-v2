@@ -2,10 +2,10 @@
 import Image from "next/image";
 import { useState } from "react";
 import { useSearchParams } from "next/navigation";
-import { formatDateToArabic } from "@/main/common/utils/date";
-import { MapIcon } from "@/main/global/assets/svg/MapIcon";
-import { HotelTimeIcon } from "@/main/global/assets/svg/HotelTimeIcon";
-import roomImg from "@/main/global/assets/images/room-image.png";
+import { formatDateToArabic } from "@/global/utils/date";
+import { MapIcon } from "@/global/assets/svg/MapIcon";
+import { HotelTimeIcon } from "@/global/assets/svg/HotelTimeIcon";
+import roomImg from "@/global/assets/images/room-image.png";
 
 function HotelInfo({ hotelData }: any) {
   const [startDate] = useState<Date | null>(() => {

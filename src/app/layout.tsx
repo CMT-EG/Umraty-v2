@@ -1,9 +1,9 @@
 import { Alexandria, Almarai } from "next/font/google";
-import Providers from "@/main/global/providers/Providers";
-import TopBar from "@/main/common/components/topBar/TopBar";
+import Providers from "@/global/providers/Providers";
+import TopBar from "@/global/components/topBar/TopBar";
 import "react-day-picker/dist/style.css";
-import "@/main/global/styles/tailwind.css";
-import "@/main/global/styles/globals.css";
+import "@/global/styles/tailwind.css";
+import "@/global/styles/globals.css";
 
 const alexandria = Alexandria({
   variable: "--font-alexandria",

@@ -4,13 +4,13 @@ import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Loader2 } from "lucide-react";
 import { z } from "zod";
-import { API_ROOT } from "@/main/global/env/variablesEnv";
-import { Button } from "@/main/common/shadcn/ui/button";
-import requestHelpers from "@/main/common/shadcn/lib/requestHelpers";
-import PhoneInput from "@/main/common/components/phoneInput/PhoneInput";
-import { cn } from "@/main/common/shadcn/lib/utils";
+import { API_ROOT } from "@/global/env/variablesEnv";
+import { Button } from "@/global/shadcn/ui/button";
+import requestHelpers from "@/global/shadcn/lib/requestHelpers";
+import PhoneInput from "@/global/components/phoneInput/PhoneInput";
+import { cn } from "@/global/shadcn/lib/utils";
 import { phoneSchema } from "../../schema/phoneSchema";
-import logoColoredImg from "@/main/global/assets/images/logo-colored.png";
+import logoColoredImg from "@/global/assets/logo/logo-dark.svg";
 
 export function SignInFrame({
   onSuccess,

@@ -1,6 +1,6 @@
-import { toast } from "@/main/common/shadcn/hooks/use-toast";
-import requestHelpers from "@/main/common/shadcn/lib/requestHelpers";
-import { API_ROOT } from "@/main/global/env/variablesEnv";
+import { toast } from "@/global/shadcn/hooks/use-toast";
+import requestHelpers from "@/global/shadcn/lib/requestHelpers";
+import { API_ROOT } from "@/global/env/variablesEnv";
 import { useState } from "react";
 
 export default function useHeroSection() {
@@ -11,7 +11,9 @@ export default function useHeroSection() {
 
   const [finishDate, setFinishDate] = useState<Date | undefined>(() => {
     const storedFinishDate = localStorage.getItem("finishDate");
-    return storedFinishDate ? new Date(JSON.parse(storedFinishDate)) : undefined;
+    return storedFinishDate
+      ? new Date(JSON.parse(storedFinishDate))
+      : undefined;
   });
 
   const onSearch = async () => {
@@ -24,7 +26,10 @@ export default function useHeroSection() {
     }
 
     localStorage.setItem("startDate", JSON.stringify(startDate.toISOString()));
-    localStorage.setItem("finishDate", JSON.stringify(finishDate.toISOString()));
+    localStorage.setItem(
+      "finishDate",
+      JSON.stringify(finishDate.toISOString())
+    );
 
     const formattedStartDate = `${startDate.getUTCFullYear()}-${(
       startDate.getUTCMonth() + 1
@@ -36,7 +41,10 @@ export default function useHeroSection() {
       finishDate.getUTCMonth() + 1
     )
       .toString()
-      .padStart(2, "0")}-${finishDate.getUTCDate().toString().padStart(2, "0")}`;
+      .padStart(2, "0")}-${finishDate
+      .getUTCDate()
+      .toString()
+      .padStart(2, "0")}`;
 
     const passengers = JSON.parse(localStorage.getItem("passengers") || "");
     try {

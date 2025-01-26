@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@/main/common/shadcn/ui/button";
+import { Button } from "@/global/shadcn/ui/button";
 import HotelInfo from "../hotelInfo/HotelInfo";
 import MultipleRoomField from "../multipleRoomField/MultipleRoomField";
 
@@ -34,7 +34,7 @@ type Props = {
   passengers: any;
   setPassengers: any;
   countOfPassengers: any;
-}
+};
 function SecondStep({
   data,
   roomInfo,
@@ -48,9 +48,9 @@ function SecondStep({
   countOfPassengers,
 }: Props) {
   return (
-    <div className='flex flex-col'>
+    <div className="flex flex-col">
       <HotelInfo hotelData={hotelData} />
-      <p className='text-xl mb-3'>تأكيد بيانات المسافرين</p>
+      <p className="text-xl mb-3">تأكيد بيانات المسافرين</p>
       <MultipleRoomField
         data={data}
         roomInfo={roomInfo}
@@ -61,7 +61,7 @@ function SecondStep({
       />
       <Button
         size={"lg"}
-        className='mt-5 text-base'
+        className="mt-5 text-base"
         onClick={() => {
           if (isLoggedIn) {
             setCurrentStep(3);

@@ -1,5 +1,5 @@
 "use client";
-import { Button } from "@/main/common/shadcn/ui/button";
+import { Button } from "@/global/shadcn/ui/button";
 import HotelInfo from "../hotelInfo/HotelInfo";
 import MultipleRoomField from "../multipleRoomField/MultipleRoomField";
 import { z } from "zod";

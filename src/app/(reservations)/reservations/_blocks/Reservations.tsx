@@ -4,7 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import React, { useState } from "react";
 import HeroSection from "./heroSection/HeroSection";
 import ReservationItem from "./reservationItem/ReservationItem";
-import requestHelpers from "@/main/common/shadcn/lib/requestHelpers";
+import requestHelpers from "@/global/shadcn/lib/requestHelpers";
 function Reservations() {
   const [currentTab, setCurrentTab] = useState<"present" | "past">("past");
   const { data } = useQuery({

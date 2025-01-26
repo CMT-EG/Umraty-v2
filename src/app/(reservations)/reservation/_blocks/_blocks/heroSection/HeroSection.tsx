@@ -1,12 +1,12 @@
 "use client";
 
-import { InfoCheckIcon } from "@/main/global/assets/svg/InfoCheckIcon";
-import { InfoIcon } from "@/main/global/assets/svg/InfoIcon";
-import { PaymentIcon } from "@/main/global/assets/svg/PaymentIcon";
+import { InfoCheckIcon } from "@/global/assets/svg/InfoCheckIcon";
+import { InfoIcon } from "@/global/assets/svg/InfoIcon";
+import { PaymentIcon } from "@/global/assets/svg/PaymentIcon";
 
 type Props = {
   currentStep: number;
-}
+};
 function HeroSection({ currentStep }: Props) {
   return (
     <section className="bg-rooms-background bg-center bg-cover mb-[9rem]">

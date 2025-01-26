@@ -1,14 +1,14 @@
 import Script from "next/script";
 import Reservation from "./_blocks/Reservation";
-import Header from "@/main/common/components/header/Header";
-import Footer from "@/main/common/components/footer/Footer";
+import Footer from "@/global/components/footer/Footer";
 import { Loader2 } from "lucide-react";
 import { Suspense } from "react";
+import NavBar from "@/global/components/navbar/NavBar";
 
 export default function Page() {
   return (
     <div className="relative">
-      <Header variant="white" className="absolute top-0" />
+      <NavBar variant="white" className="absolute top-0" />
       <Suspense fallback={<Loader2 />}>
         <Reservation />
       </Suspense>

@@ -1,5 +1,5 @@
 "use client";
-import { Button } from "@/main/common/shadcn/ui/button";
+import { Button } from "@/global/shadcn/ui/button";
 import HotelInfo from "../hotelInfo/HotelInfo";
 import MultipleRoomField from "../multipleRoomField/MultipleRoomField";
 
@@ -22,7 +22,7 @@ type handleRoomInfoChangeType = (
   value: string
 ) => any;
 
-type Props =  {
+type Props = {
   data: any[];
   setCurrentStep: (value: number) => any;
   roomInfo: RoomInfo;
@@ -34,7 +34,7 @@ type Props =  {
   passengers: any;
   setPassengers: any;
   countOfPassengers: any;
-}
+};
 function FirstStep({
   data,
   roomInfo,
@@ -69,9 +69,9 @@ function FirstStep({
   };
 
   return (
-    <div className='flex flex-col'>
+    <div className="flex flex-col">
       <HotelInfo hotelData={hotelData} />
-      <p className='text-xl mb-3'>ادخال بيانات المسافرين</p>
+      <p className="text-xl mb-3">ادخال بيانات المسافرين</p>
       <MultipleRoomField
         data={data}
         roomInfo={roomInfo}
@@ -82,7 +82,7 @@ function FirstStep({
       />
       <Button
         size={"lg"}
-        className='mt-5 text-base'
+        className="mt-5 text-base"
         onClick={() => {
           if (validateFields()) {
             if (token) {

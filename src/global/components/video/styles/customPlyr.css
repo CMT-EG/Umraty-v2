@@ -1,0 +1,33 @@
+/* app/globals.css or your CSS file */
+:root {
+  --plyr-color-main: #5f4134;
+
+  /* Core player elements */
+  --plyr-range-fill-background: var(--plyr-color-main);
+  --plyr-video-control-color: white;
+  --plyr-video-control-color-hover: white;
+  --plyr-video-control-background-hover: rgba(95, 65, 52, 0.1);
+
+  /* Progress bar */
+  --plyr-range-thumb-background: var(--plyr-color-main);
+  --plyr-range-fill-background: var(--plyr-color-main);
+
+  /* Loading spinner */
+  --plyr-loading-color: var(--plyr-color-main);
+}
+
+/* Video container styling */
+.plyr-video-container {
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: black;
+}
+
+/* Optional: Add a subtle brown tint to the control bar */
+.plyr--video .plyr__controls {
+  background: linear-gradient(rgba(95, 65, 52, 0.02), rgba(95, 65, 52, 0.1));
+}
+
+/* .plyr__control--overlaid {
+  @apply bg-primary-600;
+} */

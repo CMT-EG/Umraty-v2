@@ -1,8 +1,8 @@
 "use client";
 
-import { DatePicker } from "@/main/common/components/datePicker/DatePicker";
+import { DatePicker } from "@/global/components/datePicker/DatePicker";
 import useHero from "./hooks/useHero";
-import { Button } from "@/main/common/shadcn/ui/button";
+import { Button } from "@/global/shadcn/ui/button";
 
 function Hero() {
   const {
@@ -29,7 +29,7 @@ function Hero() {
     onSearch,
     destinations,
     handleDestination,
-    takeoffs
+    takeoffs,
   } = useHero();
   return (
     <section className="bg-hero-background bg-bottom bg-cover mb-[9rem]">
@@ -57,15 +57,6 @@ function Hero() {
           >
             {settings?.bold_text}
           </h3>
-          <Button
-            size="lg"
-            className="rounded-full mb-[50px]"
-            onClick={() =>
-              window.open("https://maps.app.goo.gl/c2KHbZpKKF6VN32q9", "_blank")
-            }
-          >
-            اللوكيشن تبعنا
-          </Button>
         </div>
         <div className="absolute bottom-0 translate-y-2/3 md:inset-x-[5.5rem] inset-x-5 flex flex-col gap-4 bg-white rounded-[1.25rem] p-8 shadow-lg">
           {hotelRequired === "yes" ? (

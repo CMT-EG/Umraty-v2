@@ -1,19 +1,19 @@
 "use client";
 
-import requestHelpers from "@/main/common/shadcn/lib/requestHelpers";
-import { Button } from "@/main/common/shadcn/ui/button";
-import { BathIcon } from "@/main/global/assets/svg/BathIcon";
-import { BedIcon } from "@/main/global/assets/svg/BedIcon";
-import { ExpandIcon } from "@/main/global/assets/svg/ExpandIcon";
-import { FoodIcon } from "@/main/global/assets/svg/FoodIcon";
-import { PeopleIcon } from "@/main/global/assets/svg/PeopleIcon";
-import { PersonIcon } from "@/main/global/assets/svg/PersonIcon";
-import { WifiIcon } from "@/main/global/assets/svg/WifiIcon";
-import { API_ROOT } from "@/main/global/env/variablesEnv";
+import requestHelpers from "@/global/shadcn/lib/requestHelpers";
+import { Button } from "@/global/shadcn/ui/button";
+import { BathIcon } from "@/global/assets/svg/BathIcon";
+import { BedIcon } from "@/global/assets/svg/BedIcon";
+import { ExpandIcon } from "@/global/assets/svg/ExpandIcon";
+import { FoodIcon } from "@/global/assets/svg/FoodIcon";
+import { PeopleIcon } from "@/global/assets/svg/PeopleIcon";
+import { PersonIcon } from "@/global/assets/svg/PersonIcon";
+import { WifiIcon } from "@/global/assets/svg/WifiIcon";
+import { API_ROOT } from "@/global/env/variablesEnv";
 import { useQuery } from "@tanstack/react-query";
 import { Minus, Plus } from "lucide-react";
 import Image from "next/image";
-import roomImg from "@/main/global/assets/images/room-image.png";
+import roomImg from "@/global/assets/images/room-image.png";
 
 type RoomsStateType = {
   [key: number]: {
@@ -67,7 +67,7 @@ function RoomCard({
       return requestHelpers.getData(`${API_ROOT}/settings/get/`);
     },
   });
-  
+
   return (
     <div className="flex-grow rounded-[0.5rem] overflow-hidden flex sm:gap-4 gap-2 bg-white shadow-[-4px_2px_20px_0px] shadow-[#5E5E5E]/10">
       <Image

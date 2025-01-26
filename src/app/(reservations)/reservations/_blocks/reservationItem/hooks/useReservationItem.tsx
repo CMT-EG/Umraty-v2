@@ -1,6 +1,6 @@
-import { toast } from "@/main/common/shadcn/hooks/use-toast";
-import requestHelpers from "@/main/common/shadcn/lib/requestHelpers";
-import { formatDateToArabic } from "@/main/common/utils/date";
+import { toast } from "@/global/shadcn/hooks/use-toast";
+import requestHelpers from "@/global/shadcn/lib/requestHelpers";
+import { formatDateToArabic } from "@/global/utils/date";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 
@@ -18,7 +18,7 @@ export default function useReservationItem({ bookingData }: Props) {
       toast({
         variant: "default",
         title: "تم الغاء الحجز بنجاح.",
-      })
+      });
       // toast.success("تم الغاء الحجز بنجاح.");
       queryClient.invalidateQueries({
         queryKey: ["userBookings"],
@@ -29,7 +29,7 @@ export default function useReservationItem({ bookingData }: Props) {
       toast({
         variant: "destructive",
         title: errorMsg,
-      })
+      });
       // toast.error(errorMsg);
     },
   });
@@ -44,5 +44,5 @@ export default function useReservationItem({ bookingData }: Props) {
   const onPayBooking = () => {
     router.push("/reservation?will_pay=true&hotel=false");
   };
-  return {endDate, startDate, onPayBooking, handleDelete};
+  return { endDate, startDate, onPayBooking, handleDelete };
 }

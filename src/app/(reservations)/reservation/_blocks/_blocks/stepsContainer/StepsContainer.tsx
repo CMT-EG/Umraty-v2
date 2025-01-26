@@ -7,10 +7,10 @@ import { useSearchParams } from "next/navigation";
 import ThirdStep from "./_blocks/thirdStep/ThirdStep";
 import SecondStep from "./_blocks/secondStep/SecondStep";
 import FirstStep from "./_blocks/firstStep/FirstStep";
-import { API_ROOT } from "@/main/global/env/variablesEnv";
-import requestHelpers from "@/main/common/shadcn/lib/requestHelpers";
-import { PersonIcon } from "@/main/global/assets/svg/PersonIcon";
-import roomImg from "@/main/global/assets/images/room-image.png";
+import { API_ROOT } from "@/global/env/variablesEnv";
+import requestHelpers from "@/global/shadcn/lib/requestHelpers";
+import { PersonIcon } from "@/global/assets/svg/PersonIcon";
+import roomImg from "@/global/assets/images/room-image.png";
 function StepsContainer({
   currentStep,
   setCurrentStep,
