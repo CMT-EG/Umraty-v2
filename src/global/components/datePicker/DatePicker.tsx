@@ -11,12 +11,16 @@ import { formatDate } from "../../utils/date";
 
 interface DatePickerProps
   extends Omit<React.HTMLAttributes<HTMLDivElement>, "onChange"> {
+  title: string;
+  required?: boolean;
   placeholder: string;
   date: Date | undefined;
   onChange: (value: Date | undefined) => void;
 }
 
 export function DatePicker({
+  title,
+  required = false,
   placeholder,
   className,
   date,
@@ -31,14 +35,18 @@ export function DatePicker({
       <PopoverTrigger asChild>
         <div
           className={cn(
-            "flex items-center px-2.5 h-14 bg-neural-50 rounded-xl flex-grow",
+            "flex items-center gap-3 px-2.5 h-14 flex-grow cursor-pointer",
             placeholder
           )}
           {...props}
         >
-          <CalenderIcon className="size-4 me-2 shrink-0 grow-0" />
-          <span className="text-sm text-neutral-600 w-fit shrink-0 grow-0">
-            {date ? formatDate(date) : placeholder}
+          <CalenderIcon />
+          <span className="text-black shrink-0 grow-0 font-bold">
+            {title} {required && <span className="text-red-500">*</span>}
+            <br />
+            <span className="text-sm font-normal text-[#777E90] w-fit shrink-0 grow-0">
+              {date ? formatDate(date) : placeholder}
+            </span>
           </span>
         </div>
       </PopoverTrigger>
