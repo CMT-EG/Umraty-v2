@@ -1,14 +1,14 @@
 "use client";
 import { useState } from "react";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/global/shadcn/ui/select";
 import { Button } from "@/global/shadcn/ui/button";
 import TripDetails from "./_blocks/tripDetails/TripDetails";
+import {
+  SelectContentTwo,
+  SelectItemTwo,
+  SelectTriggerTwo,
+  SelectTwo,
+  SelectValueTwo,
+} from "@/global/shadcn/ui/selectTwo";
 
 export default function SelectTrip() {
   const [selectedValue, setSelectedValue] = useState("");
@@ -26,21 +26,21 @@ export default function SelectTrip() {
         <label className="block mb-2 text-right text-white">
           اختر الرحلة المراد تقسيمها
         </label>
-        <Select
+        <SelectTwo
           value={selectedValue}
           onValueChange={(value) => setSelectedValue(value)}
         >
-          <SelectTrigger className="w-full bg-[#8b5e3c] text-white border border-white rounded-lg focus:ring-0 focus:ring-offset-0">
-            <SelectValue placeholder="اختر الرحلة" />
-          </SelectTrigger>
-          <SelectContent className="bg-white text-[#8b5e3c]">
+          <SelectTriggerTwo className="w-full bg-[#8b5e3c] text-white border border-white rounded-lg focus:ring-0 focus:ring-offset-0">
+            <SelectValueTwo placeholder="اختر الرحلة" />
+          </SelectTriggerTwo>
+          <SelectContentTwo className="bg-white text-[#8b5e3c]">
             {tripOptions.map((option) => (
-              <SelectItem key={option.value} value={option.value}>
+              <SelectItemTwo key={option.value} value={option.value}>
                 {option.label}
-              </SelectItem>
+              </SelectItemTwo>
             ))}
-          </SelectContent>
-        </Select>
+          </SelectContentTwo>
+        </SelectTwo>
       </div>
 
       {/* Button */}
