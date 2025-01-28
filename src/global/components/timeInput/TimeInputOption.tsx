@@ -20,7 +20,7 @@ export function TimeInputOption({
 }: TimeInputOptionProps) {
 
     return (
-        <div className="flex items-center gap-3">
+        <div className="flex items-center flex-grow gap-3">
             <CalenderIcon />
             <div className="flex flex-col">
                 <p className="text-black font-bold mb-1">

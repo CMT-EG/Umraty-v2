@@ -1,6 +1,7 @@
 "use client";
-import { UserIcon } from "@/global/assets/svg/UserIcon";
 import * as React from "react";
+import { UserIcon } from "@/global/assets/svg/UserIcon";
+import "./style.css";
 
 interface InputNumberProps {
     placeholder?: string;
@@ -19,7 +20,7 @@ export function InputNumber({
 }: InputNumberProps) {
 
     return (
-        <div className="flex items-center gap-3">
+        <div className="flex items-center flex-grow gap-3">
             <UserIcon />
             <div className="flex flex-col">
                 <p className="text-black font-bold mb-1">

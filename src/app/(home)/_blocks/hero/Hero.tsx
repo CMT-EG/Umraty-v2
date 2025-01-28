@@ -1,12 +1,11 @@
 "use client";
 import useHero from "./hooks/useHero";
-import ReservationBox from "./_blocks/ReservationBox";
 
 function Hero() {
   const { settings } = useHero();
 
   return (
-    <section className="bg-hero-background bg-bottom bg-cover mb-[9rem]">
+    <section className="bg-hero-background bg-bottom bg-cover">
       <div className="relative text-white w-full px-5 sm:px-20 pt-40 md:pt-60 pb-24 md:pb-48 bg-gradient-to-b from-black to-black/50">
         <div className="flex flex-col md:items-start items-center md:text-start text-center max-w-[639px]">
           <div className="bg-[#404449] rounded-full px-8 py-2.5 font-bold sm:text-base text-[0.75rem] mb-4">
@@ -32,7 +31,6 @@ function Hero() {
             {settings?.bold_text}
           </h3>
         </div>
-        <ReservationBox />
       </div>
     </section>
   );

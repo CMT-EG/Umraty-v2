@@ -9,7 +9,6 @@ import {
     SelectValue,
 } from "@/global/shadcn/ui/select";
 import "./style.css";
-import { SelectArrow } from "@/global/assets/svg/SelectArrow";
 
 interface SelectOptionProps {
     placeholder?: string;
@@ -19,6 +18,7 @@ interface SelectOptionProps {
     onValueChange?: (value: string) => void;
     title: string;
     required?: boolean;
+    icon?: React.ReactNode;
 }
 
 export function SelectOption({
@@ -28,15 +28,16 @@ export function SelectOption({
     contentClassName,
     onValueChange,
     title,
+    icon,
     required = false
 }: SelectOptionProps) {
     return (
         <Select onValueChange={onValueChange} dir="rtl">
             <div className="flex items-center gap-3">
-                <SelectArrow />
-                <div className="flex flex-col">
+                {icon}
+                <div className="flex flex-col w-full">
                     <p className="text-black font-bold mb-1">{title} {required && <span className="text-red-500">*</span>}</p>
-                    <SelectTrigger className={`${triggerClassName} text-[#777E90] !appearance-none h-4 [&_svg]:hidden border-none p-0 w-[150px] focus:outline-none`}>
+                    <SelectTrigger className={`${triggerClassName} text-[#777E90] !appearance-none focus:outline-none`}>
                         <SelectValue placeholder={placeholder} />
                     </SelectTrigger>
                     <SelectContent className={contentClassName}>
