@@ -1,5 +1,4 @@
 "use client";
-import dynamic from "next/dynamic";
 import FormHeader from "@/global/components/formHeader/FormHeader";
 import TButton from "@/global/components/TForm/TButton";
 import {
@@ -8,9 +7,8 @@ import {
   AccordionTrigger,
   AccordionItem,
 } from "@/global/shadcn/ui/accordion";
-import { FormProvider } from "react-hook-form";
+import { Form } from "@/global/shadcn/ui/form";
 import { useEvaluationForm } from "./hooks/useEvaluationForm";
-import { Rating } from "@smastrom/react-rating";
 import TStareRate from "@/global/components/TForm/TStareRate";
 import TFormField from "@/global/components/TForm/TFormField";
 
@@ -27,7 +25,7 @@ export default function EvaluationForm() {
         collapsible
         className="w-full flex flex-col gap-4"
       >
-        <FormProvider {...form}>
+        <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmit)}
             className="flex flex-col gap-6"
@@ -205,7 +203,7 @@ export default function EvaluationForm() {
               إرسال التقييم
             </TButton>
           </form>
-        </FormProvider>
+        </Form>
       </Accordion>
     </div>
   );

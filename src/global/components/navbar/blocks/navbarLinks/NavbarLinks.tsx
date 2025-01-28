@@ -20,7 +20,7 @@ export default function NavbarLinks({ open = false }: { open?: boolean }) {
 
   const handleLogout = () => {
     deleteCookie("accessToken");
-    redirect("/sign-in", RedirectType.replace);
+    redirect("/login", RedirectType.replace);
   };
 
   return (
@@ -74,7 +74,7 @@ export default function NavbarLinks({ open = false }: { open?: boolean }) {
         <LangChanger />
         {showSignIn ? (
           <Button className="sm:px-5 px-3 rounded-full text-white" asChild>
-            <Link href={"/sign-in"}>
+            <Link href={"/login"}>
               <GoPerson
                 className="sm:size-5 size-4 sm:me-2 me-1"
                 strokeWidth={1}

@@ -10,7 +10,7 @@ import { cn } from "@/global/shadcn/lib/utils";
 import { reviews } from "@/global/fakedata/reviews";
 import { Avatar, AvatarFallback, AvatarImage } from "@/global/shadcn/ui/avatar";
 import PlyrVideo from "@/global/components/video/PlyrVideo";
-import logoImg from "@/global/assets/logo/logo-dark.svg";
+import logoImg from "@/global/assets/logo/logo-dark.png";
 import Image from "next/image";
 import { Separator } from "@/global/shadcn/ui/separator";
 import QuoteSvg from "./blocks/assets/svg/QuoteSvg";
