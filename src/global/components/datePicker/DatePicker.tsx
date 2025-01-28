@@ -35,7 +35,7 @@ export function DatePicker({
       <PopoverTrigger asChild>
         <div
           className={cn(
-            "flex items-center gap-3 px-2.5 h-14 flex-grow cursor-pointer",
+            "flex items-center gap-3 h-14 flex-grow cursor-pointer",
             placeholder
           )}
           {...props}
