@@ -11,7 +11,7 @@ import ReservationBox from "./_blocks/hero/_blocks/reservationBox/ReservationBox
 export default function Home() {
   return (
     <main className="relative">
-      <NavBar variant="transparent" className="absolute top-0" />
+      <NavBar variant="white" className="absolute top-0" />
       <Hero />
       <ReservationBox />
       <Aboutus />

@@ -88,6 +88,10 @@ export default {
           "5": "hsl(var(--chart-5))",
         },
       },
+      height: {
+        rvh: "calc(100dvh - 140px)",
+        authvh: "calc(100dvh - 40px)",
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
@@ -98,12 +102,14 @@ export default {
         almarai: "var(--font-almarai)",
       },
       backgroundImage: {
-        "sign-in-background": 'url("/login_background.avif")',
+        service:
+          "linear-gradient(-133deg, rgba(236, 248, 252, 0.84) 42.92%, rgba(236, 248, 252, 0.00) 100%)",
+        "login-background": 'url("/login_background.avif")',
         "hero-background": 'url("/hero_background.avif")',
         "rooms-background": 'url("/rooms_background.avif")',
       },
       boxShadow: {
-        "3d": "rgba(0, 0, 0, 0.3) 0px 1px 2px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset"
+        "3d": "rgba(0, 0, 0, 0.3) 0px 1px 2px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset",
       },
       keyframes: {
         "accordion-down": {

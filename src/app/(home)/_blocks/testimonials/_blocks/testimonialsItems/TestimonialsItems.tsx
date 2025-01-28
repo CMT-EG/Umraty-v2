@@ -10,12 +10,12 @@ import { cn } from "@/global/shadcn/lib/utils";
 import { reviews } from "@/global/fakedata/reviews";
 import { Avatar, AvatarFallback, AvatarImage } from "@/global/shadcn/ui/avatar";
 import PlyrVideo from "@/global/components/video/PlyrVideo";
-import logoImg from "@/global/assets/logo/logo-dark.svg";
+import logoImg from "@/global/assets/logo/logo-dark.png";
 import Image from "next/image";
 import { Separator } from "@/global/shadcn/ui/separator";
 import QuoteSvg from "./blocks/assets/svg/QuoteSvg";
 import Link from "next/link";
-import ReactStars from "react-stars";
+import { Rating } from "@smastrom/react-rating";
 
 export default function TestimonialsItems() {
   const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
@@ -60,16 +60,12 @@ export default function TestimonialsItems() {
                     </p>
                   </div>
                   <Separator className="w-[2px] h-1" />
-                  <div className="flex items-center gap-3">
-                    <ReactStars
-                      count={5}
-                      value={review?.rate}
-                      edit={false}
-                      // onChange={ratingChanged}
-                      size={28}
-                      color2={"#ffd700"}
-                    />
-                  </div>
+                  <Rating
+                    items={5}
+                    readOnly
+                    style={{ maxWidth: 180 }}
+                    value={review?.rate}
+                  />
                 </div>
               </SwiperSlide>
             ))}

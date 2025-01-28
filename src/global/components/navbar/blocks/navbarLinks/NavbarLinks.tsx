@@ -20,11 +20,16 @@ export default function NavbarLinks({ open = false }: { open?: boolean }) {
 
   const handleLogout = () => {
     deleteCookie("accessToken");
-    redirect("/sign-in", RedirectType.replace);
+    redirect("/login", RedirectType.replace);
   };
 
   return (
-    <ul className={cn("hidden flex-col lg:flex-row flex-1 items-start lg:items-center justify-between gap-3", open ? "flex": "lg:flex")}>
+    <ul
+      className={cn(
+        "hidden flex-col lg:flex-row flex-1 items-start lg:items-center justify-between gap-3",
+        open ? "flex" : "lg:flex"
+      )}
+    >
       <div className="flex flex-col lg:flex-row items-start lg:items-center gap-3 lg:gap-5">
         {rightTabs?.map((tab, index) => (
           <li key={index}>
@@ -44,6 +49,18 @@ export default function NavbarLinks({ open = false }: { open?: boolean }) {
       <div className="flex flex-col lg:flex-row items-start lg:items-center justify-center w-fit gap-3 lg:gap-0">
         <li>
           <Link
+            href={"?report=true"}
+            className={`text-[0.8rem] py-2 md:text-sm px-2 md:px-4 border-b-2 ${
+              pathname === "/faq"
+                ? "text-primary border-primary"
+                : `text-[#777E90] border-transparent hover:text-primary hover:border-primary`
+            } text-[#777e90] text-sm font-extrabold font-['Almarai'] transition-colors text-nowrap`}
+          >
+            الإبلاغ
+          </Link>
+        </li>
+        <li>
+          <Link
             href={"/faq"}
             className={`text-[0.8rem] py-2 md:text-sm px-2 md:px-4 border-b-2 ${
               pathname === "/faq"
@@ -57,7 +74,7 @@ export default function NavbarLinks({ open = false }: { open?: boolean }) {
         <LangChanger />
         {showSignIn ? (
           <Button className="sm:px-5 px-3 rounded-full text-white" asChild>
-            <Link href={"/sign-in"}>
+            <Link href={"/login"}>
               <GoPerson
                 className="sm:size-5 size-4 sm:me-2 me-1"
                 strokeWidth={1}

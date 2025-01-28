@@ -4,9 +4,9 @@ const HeaderSectionTwo = ({ prevText, title, subtitle }) => {
   const restWords = words.slice(1).join(" ");
 
   return (
-    <div className="flex flex-col gap-4 text-start">
+    <div className="flex flex-col gap-4 text-center md:text-start w-full">
       <span className="text-[#777E90] text-sm font-bold">{prevText}</span>
-      <h1 className="relative inline-block text-5xl font-extrabold">
+      <h1 className="relative inline-block text-4xl md:text-5xl font-extrabold">
         <span className="text-[#141416]">{firstWord}</span>
         <span className="text-primary-700 relative">{restWords}</span>
       </h1>

@@ -24,7 +24,7 @@ export default function Aboutus() {
   ];
 
   return (
-    <section className="flex flex-col gap-20 pt-36 pb-20 bg-[#EBE4D6] px-4">
+    <section className="flex flex-col gap-20 pt-52 pb-20 bg-[#EBE4D6] px-4">
       <HeaderSection
         title="لماذا  نحن ؟"
         subtitle="هذا النص الكبير الذى لا يحمل اى معنى وليس له قيمة"
@@ -39,3 +39,4 @@ export default function Aboutus() {
     </section>
   );
 }
+

@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { Button } from "@/global/shadcn/ui/button";
 import { cn } from "@/global/shadcn/lib/utils";
-import logo from "@/global/assets/logo/logo-dark.svg";
+import logo from "@/global/assets/logo/logo-dark.png";
 import { Separator } from "@/global/shadcn/ui/separator";
 import { FaGripLines } from "react-icons/fa";
 import NavbarLinks from "./blocks/navbarLinks/NavbarLinks";
@@ -17,7 +17,10 @@ export default function NavBar({
   return (
     <header
       className={cn(
-        `w-full py-[0.875rem] px-5 md:py-3 md:px-20 flex items-center justify-between bg-[#FCFCFD] z-30 h-[88px]`,
+        `w-full py-[0.875rem] px-5 md:py-3 md:px-10 lg:px-16 flex items-center justify-between  z-30 h-[88px]`,
+        variant === "white"
+          ? " bg-[#FCFCFD] text-neutral-400"
+          : " bg-[#1C1B1F] text-neural-200",
         className
       )}
     >
@@ -31,7 +34,10 @@ export default function NavBar({
           }`}
           alt="Logo"
         />
-        <Separator orientation="vertical" className="hidden lg:block bg-[#E6E8EC] mx-10" />
+        <Separator
+          orientation="vertical"
+          className="hidden lg:block bg-[#E6E8EC] mx-10"
+        />
       </div>
 
       <NavbarLinks />
