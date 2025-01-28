@@ -10,7 +10,7 @@ import FrequentlyQuestions from "./_blocks/frequentlyQuestions/FrequentlyQuestio
 export default function Home() {
   return (
     <main className="relative">
-      <NavBar variant="transparent" className="absolute top-0" />
+      <NavBar variant="white" className="absolute top-0" />
       <Hero />
       <Aboutus />
       <Services />

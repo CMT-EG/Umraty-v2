@@ -4,6 +4,7 @@ import TopBar from "@/global/components/topBar/TopBar";
 import "react-day-picker/dist/style.css";
 import "@/global/styles/tailwind.css";
 import "@/global/styles/globals.css";
+import "@smastrom/react-rating/style.css";
 
 const alexandria = Alexandria({
   variable: "--font-alexandria",
