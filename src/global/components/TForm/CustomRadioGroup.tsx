@@ -1,3 +1,5 @@
+"use client";
+
 import { Label } from "@/global/shadcn/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/global/shadcn/ui/radio-group";
 
@@ -13,15 +15,24 @@ export default function CustomRadioGroup({
   options,
   label,
 }: Props) {
+  const dir =
+    typeof window !== "undefined" ? document.documentElement.dir : "ltr";
   return (
-    <RadioGroup value={value} onValueChange={onChange}>
+    <RadioGroup dir={dir as any} value={value} onValueChange={onChange}>
       {label && <Label className="text-lg font-semibold mb-4">{label}</Label>}
-      {options?.map((option) => (
-        <div key={option.value} className="flex items-center space-x-2">
-          <RadioGroupItem value={option.value} id={option.value} />
-          <Label htmlFor={option.value}>{option.label}</Label>
-        </div>
-      ))}
+      <div className="flex gap-3">
+        {options?.map((option) => (
+          <div key={option.value} className="flex items-center gap-4">
+            <RadioGroupItem value={option.value} id={option.value} />
+            <Label
+              htmlFor={option.value}
+              className="text-[#131416] text-2xl font-normal"
+            >
+              {option.label}
+            </Label>
+          </div>
+        ))}
+      </div>
     </RadioGroup>
   );
 }

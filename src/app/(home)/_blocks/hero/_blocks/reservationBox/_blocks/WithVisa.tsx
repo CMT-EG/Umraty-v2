@@ -120,7 +120,7 @@ export const WithVisa = ({ isVisa }) => {
           </div>
         </div>
       ) : (
-        <div>
+        <div className="flex flex-col gap-6">
           {/* <PreferenceSelector
             question="هل تريد خدمة النقل من مكة للمدينة المنورة ؟"
             option1="نعم"
