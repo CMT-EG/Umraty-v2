@@ -1,0 +1,18 @@
+export const fakeData = [
+    { label: "الرياض", value: "riyadh" },
+    { label: "جدة", value: "jeddah" },
+    { label: "مكة المكرمة", value: "mecca" },
+    { label: "المدينة المنورة", value: "medina" },
+    { label: "الدمام", value: "dammam" },
+    { label: "الخبر", value: "khobar" },
+    { label: "الطائف", value: "taif" },
+    { label: "تبوك", value: "tabuk" },
+    { label: "بريدة", value: "buraidah" },
+    { label: "حائل", value: "hail" },
+    { label: "القاهرة", value: "cairo" },
+    { label: "الإسكندرية", value: "alexandria" },
+    { label: "الجيزة", value: "giza" },
+    { label: "شرم الشيخ", value: "sharm-el-sheikh" },
+    { label: "دبي", value: "dubai" },
+    { label: "أبو ظبي", value: "abu-dhabi" },
+]; 

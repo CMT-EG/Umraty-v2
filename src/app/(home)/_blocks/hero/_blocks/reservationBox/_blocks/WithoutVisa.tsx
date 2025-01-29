@@ -1,6 +1,5 @@
 "use client";
 import { DatePicker } from '@/global/components/datePicker/DatePicker';
-import { InputNumber } from '@/global/components/inputNumber/InputNumber';
 import { SelectOption } from '@/global/components/selectOption/SelectOption';
 import { TimeInputOption } from '@/global/components/timeInput/TimeInputOption';
 import { TabsContent } from '@/global/shadcn/ui/tabs';
@@ -8,8 +7,23 @@ import React, { useState } from 'react';
 import useHero from '../../../hooks/useHero';
 import { Search } from 'lucide-react';
 import { SelectArrow } from "@/global/assets/svg/SelectArrow";
+import { fakeData } from '../constants/data';
+import AgeGroupCounter from '@/global/components/ageGroupCounter/AgeGroupCounter';
+import { useReservation } from '../hooks/useReservation';
+import { Dropdown } from '@/global/components/dropdown/DropdownMenu';
+import { UserIcon } from '@/global/assets/svg/UserIcon';
 
 export const WithoutVisa = ({ isVisa }) => {
+    const { adults,
+        setAdults,
+        children,
+        setChildren,
+        infants,
+        setInfants,
+        total,
+        increment,
+        decrement } = useReservation();
+
     const now = new Date();
     const currentTime = now.toTimeString().slice(0, 5);
     const [time, setTime] = useState(currentTime);
@@ -31,18 +45,6 @@ export const WithoutVisa = ({ isVisa }) => {
         destination,
     } = useHero();
 
-    const timezoneGroups = [
-        { value: "est", label: "Eastern Standard Time (EST)" },
-        { value: "cst", label: "Central Standard Time (CST)" },
-        { value: "mst", label: "Mountain Standard Time (MST)" },
-        { value: "pst", label: "Pacific Standard Time (PST)" },
-        { value: "akst", label: "Alaska Standard Time (AKST)" },
-        { value: "hst", label: "Hawaii Standard Time (HST)" },
-    ];
-
-    const handleTimezoneChange = (value: string) => {
-        console.log("Selected timezone:", value);
-    };
     return (
         <TabsContent value={isVisa} className="flex flex-wrap items-center gap-4 w-full">
             <DatePicker
@@ -82,8 +84,7 @@ export const WithoutVisa = ({ isVisa }) => {
                 icon={<SelectArrow />}
                 triggerClassName='h-4 border-none p-0 [&_svg]:hidden w-[150px]'
                 placeholder="من أين أنت منطلق؟"
-                options={timezoneGroups}
-                onValueChange={handleTimezoneChange}
+                options={fakeData}
                 title='نقطة الانطلاق'
                 required
             />
@@ -91,8 +92,7 @@ export const WithoutVisa = ({ isVisa }) => {
                 icon={<SelectArrow />}
                 triggerClassName='h-4 border-none p-0 [&_svg]:hidden w-[150px]'
                 placeholder="إلي أين أنت ذاهب؟"
-                options={timezoneGroups}
-                onValueChange={handleTimezoneChange}
+                options={fakeData}
                 title='نقطة الوصول'
             />
             <TimeInputOption
@@ -106,12 +106,20 @@ export const WithoutVisa = ({ isVisa }) => {
                 value={time}
                 onChange={handleTimeChange}
             />
-            <InputNumber
-                title="المسافرون"
-                placeholder='إضافة ضيوف'
-                onChange={handleTimeChange}
-                required
-            />
+            <Dropdown icon={<UserIcon />} title='المسافرون' required placeholder={total ? `${total} معتمرين` : 'إضافة ضيوف'}>
+                <AgeGroupCounter
+                    adults={adults}
+                    setAdults={setAdults}
+                    // eslint-disable-next-line react/no-children-prop
+                    children={children}
+                    setChildren={setChildren}
+                    infants={infants}
+                    setInfants={setInfants}
+                    increment={increment}
+                    decrement={decrement}
+                />
+            </Dropdown>
+
             <button
                 type="submit"
                 className='text-white bg-primary-600 size-12 flex items-center justify-center rounded-full'>

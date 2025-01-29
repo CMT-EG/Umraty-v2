@@ -22,7 +22,7 @@ interface SelectOptionProps {
 }
 
 export function SelectOption({
-    placeholder = "من أين أنت منطلق؟",
+    placeholder,
     options,
     triggerClassName,
     contentClassName,
@@ -31,24 +31,34 @@ export function SelectOption({
     icon,
     required = false
 }: SelectOptionProps) {
+    const triggerRef = React.useRef<HTMLButtonElement>(null);
+
+    const handleClick = () => {
+        if (triggerRef.current) {
+            triggerRef.current.click();
+        }
+    };
+
     return (
-        <Select onValueChange={onValueChange} dir="rtl">
-            <div className="flex items-center gap-3">
-                {icon}
-                <div className="flex flex-col w-full">
-                    <p className="text-black font-bold mb-1">{title} {required && <span className="text-red-500">*</span>}</p>
-                    <SelectTrigger className={`${triggerClassName} text-[#777E90] !appearance-none focus:outline-none`}>
-                        <SelectValue placeholder={placeholder} />
-                    </SelectTrigger>
-                    <SelectContent className={contentClassName}>
-                        {options.map((option) => (
-                            <SelectItem key={option.value} value={option.value}>
-                                {option.label}
-                            </SelectItem>
-                        ))}
-                    </SelectContent>
+        <div onClick={handleClick} className="cursor-pointer">
+            <Select onValueChange={onValueChange} dir="rtl">
+                <div className="flex items-center gap-3">
+                    {icon}
+                    <div className="flex flex-col w-full">
+                        <p className="text-black font-bold mb-1">{title} {required && <span className="text-red-500">*</span>}</p>
+                        <SelectTrigger ref={triggerRef} className={`${triggerClassName} text-[#777E90] !appearance-none focus:outline-none`}>
+                            <SelectValue placeholder={placeholder} />
+                        </SelectTrigger>
+                        <SelectContent className={contentClassName}>
+                            {options.map((option) => (
+                                <SelectItem key={option.value} value={option.value}>
+                                    {option.label}
+                                </SelectItem>
+                            ))}
+                        </SelectContent>
+                    </div>
                 </div>
-            </div>
-        </Select>
+            </Select>
+        </div>
     );
 }
