@@ -1,12 +1,11 @@
 "use client";
 import Image from "next/image";
-import { Button } from "@/global/shadcn/ui/button";
 import { cn } from "@/global/shadcn/lib/utils";
 import logo from "@/global/assets/logo/logo-dark.png";
 import { Separator } from "@/global/shadcn/ui/separator";
-import { FaGripLines } from "react-icons/fa";
 import NavbarLinks from "./blocks/navbarLinks/NavbarLinks";
 import { MobileMenu } from "./blocks/navbarLinks/MobileMenu";
+import { redirect } from "next/navigation";
 
 export default function NavBar({
   variant = "white",
@@ -29,10 +28,11 @@ export default function NavBar({
           src={logo}
           width={69.17}
           height={36}
-          className={`md:h-16 h-11 w-fit ${
+          className={`md:h-16 h-11 w-fit cursor-pointer ${
             variant === "white" ? "brightness-0" : ""
           }`}
           alt="Logo"
+          onClick={() => redirect("/")}
         />
         <Separator
           orientation="vertical"

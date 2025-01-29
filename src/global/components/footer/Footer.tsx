@@ -76,7 +76,7 @@ export default function Footer() {
       </div>
       <div className="relative z-10 border-t border-white/35 py-6 flex items-center justify-between md:flex-row flex-col gap-5">
         <p className="md:order-1 order-3 text-white/85 text-[0.75rem]">
-          جميع الحقوق محفوظة © 2024{" "}
+          جميع الحقوق محفوظة لدي منصة عمرتي© 2024
         </p>
       </div>
       <Image

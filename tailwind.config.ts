@@ -104,6 +104,8 @@ export default {
       backgroundImage: {
         service:
           "linear-gradient(-133deg, rgba(236, 248, 252, 0.84) 42.92%, rgba(236, 248, 252, 0.00) 100%)",
+        reservation:
+          "linear-gradient(to bottom, transparent 0, #F6F6F6 70px, #EBE4D6 70px, #EBE4D6 100%)",
         "login-background": 'url("/login_background.avif")',
         "hero-background": 'url("/hero_background.avif")',
         "rooms-background": 'url("/rooms_background.avif")',
