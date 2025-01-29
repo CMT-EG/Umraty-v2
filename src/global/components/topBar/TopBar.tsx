@@ -1,4 +1,7 @@
+"use client";
+import { cn } from "@/global/shadcn/lib/utils";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import {
   BsFillEnvelopeFill,
   BsGeoAltFill,
@@ -9,8 +12,14 @@ import {
 import { GrFacebookOption } from "react-icons/gr";
 
 export default function TopBar() {
+  const pathName = usePathname();
   return (
-    <div className="py-[0.875rem] px-5 md:py-3 md:px-20 flex items-center justify-center md:justify-between flex-wrap md:gap-2 gap-3 bg-primary-600 text-white/85">
+    <div
+      className={cn(
+        "py-[0.875rem] px-5 md:py-3 md:px-20 flex items-center justify-center md:justify-between flex-wrap md:gap-2 gap-3 bg-primary-600 text-white/85",
+        pathName === "/login" ? "hidden" : ""
+      )}
+    >
       <div className="flex items-center sm:justify-between justify-center flex-wrap flex-grow max-w-2xl gap-2 font-alexandria">
         <div className="flex items-center sm:gap-2 gap-1">
           <div className="md:size-7 size-6 rounded-full flex items-center justify-center bg-primary-500">
@@ -64,7 +73,7 @@ export default function TopBar() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <GrFacebookOption   className="md:size-[0.9rem] size-[0.7rem]" />
+            <GrFacebookOption className="md:size-[0.9rem] size-[0.7rem]" />
           </Link>
         </div>
       </div>

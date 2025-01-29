@@ -5,11 +5,11 @@ import Footer from "@/global/components/footer/Footer";
 
 export default function ServiceEvaluationPage() {
   return (
-    <main className="flex flex-col gap-20">
+    <div className="flex flex-col gap-20">
       <Hero />
       <Evaluation />
       <FrequentlyQuestions />
       <Footer />
-    </main>
+    </div>
   );
 }
