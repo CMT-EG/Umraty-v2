@@ -19,8 +19,16 @@ export function TimeInputOption({
   required = false,
   inputClassName = "",
 }: TimeInputOptionProps) {
+  const triggerRef = React.useRef<HTMLInputElement>(null);
+
+  const handleClick = () => {
+    if (triggerRef.current) {
+      triggerRef.current.click();
+    }
+  };
+
   return (
-    <div className="flex items-center flex-grow gap-3">
+    <div className="flex items-center flex-grow gap-3 cursor-pointer" onClick={handleClick}>
       <CalenderIcon />
       <div className="flex flex-col">
         <p className="text-black font-bold mb-1">
@@ -28,10 +36,11 @@ export function TimeInputOption({
         </p>
         <div className="relative">
           <TimePicker
+            ref={triggerRef}
             value={value}
             onChange={onChange}
             allowedFormats={["hm"]}
-            inputClassName={`${inputClassName} w-full text-center !appearance-none text-[#777E90] border-none !p-0 focus:outline-none focus:ring-0 text-sm`}
+            inputClassName={`${inputClassName} w-full text-center !appearance-none text-[#777E90] border-none !p-0 focus:outline-none focus:ring-0 text-sm cursor-pointer`}
           />
           {/* <input
             type="time"
