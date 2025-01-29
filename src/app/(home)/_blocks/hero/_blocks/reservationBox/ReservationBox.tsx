@@ -24,11 +24,12 @@ const ReservationBox = () => {
                </Tabs>}
             </TabsList>
 
+            {/* Without Visa */}
+            <WithoutVisa isVisa={"withoutVisa"} />
+
             {/* With Visa */}
             <WithVisa isVisa={"withVisa"} />
 
-            {/* Without Visa */}
-            <WithoutVisa isVisa={"withoutVisa"} />
          </Tabs>
       </div>
    );
