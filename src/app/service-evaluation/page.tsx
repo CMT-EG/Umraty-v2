@@ -1,11 +1,9 @@
-import NavBar from "@/global/components/navbar/NavBar";
 import ServiceEvaluationPage from "./ServiceEvaluationPage";
 
 export default function page() {
   return (
-    <div>
-      <NavBar variant="white" />
+    <main>
       <ServiceEvaluationPage />
-    </div>
+    </main>
   );
 }

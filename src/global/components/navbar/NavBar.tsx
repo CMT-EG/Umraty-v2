@@ -1,12 +1,12 @@
 "use client";
 import Image from "next/image";
-import { Button } from "@/global/shadcn/ui/button";
 import { cn } from "@/global/shadcn/lib/utils";
 import logo from "@/global/assets/logo/logo-dark.png";
 import { Separator } from "@/global/shadcn/ui/separator";
-import { FaGripLines } from "react-icons/fa";
 import NavbarLinks from "./blocks/navbarLinks/NavbarLinks";
 import { MobileMenu } from "./blocks/navbarLinks/MobileMenu";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function NavBar({
   variant = "white",
@@ -14,6 +14,7 @@ export default function NavBar({
 }: React.HTMLAttributes<HTMLDivElement> & {
   variant?: "dark" | "white" | "transparent";
 }) {
+  const pathName = usePathname();
   return (
     <header
       className={cn(
@@ -21,19 +22,22 @@ export default function NavBar({
         variant === "white"
           ? " bg-[#FCFCFD] text-neutral-400"
           : " bg-[#1C1B1F] text-neural-200",
+        pathName === "/login" && "hidden",
         className
       )}
     >
       <div className="flex items-center justify-between h-full">
-        <Image
-          src={logo}
-          width={69.17}
-          height={36}
-          className={`md:h-16 h-11 w-fit ${
-            variant === "white" ? "brightness-0" : ""
-          }`}
-          alt="Logo"
-        />
+        <Link href={"/"}>
+          <Image
+            src={logo}
+            width={69.17}
+            height={36}
+            className={`md:h-16 h-11 w-fit ${
+              variant === "white" ? "brightness-0" : ""
+            }`}
+            alt="Logo"
+          />
+        </Link>
         <Separator
           orientation="vertical"
           className="hidden lg:block bg-[#E6E8EC] mx-10"

@@ -7,8 +7,8 @@ export const rightTabs = [
     title: "الحجوزات",
     href: "/reservations",
   },
-  {
-    title: "تقييم الخدمة",
-    href: "/service-evaluation",
-  },
+  // {
+  //   title: "تقييم الخدمة",
+  //   href: "/service-evaluation",
+  // },
 ];

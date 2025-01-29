@@ -140,9 +140,9 @@ const TimePicker = React.forwardRef<HTMLInputElement, TimePickerProps>(
       onChange?.(newTime);
     };
 
-    const toggleDropdown = (): void => {
-      if (!disabled) {
-        setIsOpen(!isOpen);
+    const openDropdown = (): void => {
+      if (!disabled && !isOpen) {
+        setIsOpen(true);
       }
     };
 
@@ -175,7 +175,7 @@ const TimePicker = React.forwardRef<HTMLInputElement, TimePickerProps>(
             placeholder={placeholder}
             value={selectedTime}
             onChange={handleTimeInput}
-            onClick={toggleDropdown}
+            onClick={openDropdown}
             disabled={disabled}
             readOnly={readOnly}
             onKeyDown={(e) => {
@@ -190,7 +190,7 @@ const TimePicker = React.forwardRef<HTMLInputElement, TimePickerProps>(
               disabled && "cursor-not-allowed"
             )}
             onClick={() => {
-              !readOnly && toggleDropdown();
+              !readOnly && openDropdown();
             }}
             type="button"
             disabled={disabled}

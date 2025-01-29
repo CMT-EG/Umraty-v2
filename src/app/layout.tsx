@@ -5,6 +5,7 @@ import "react-day-picker/dist/style.css";
 import "@/global/styles/tailwind.css";
 import "@/global/styles/globals.css";
 import "@smastrom/react-rating/style.css";
+import NavBar from "@/global/components/navbar/NavBar";
 
 const alexandria = Alexandria({
   variable: "--font-alexandria",
@@ -27,6 +28,7 @@ export default function RootLayout({
         className={`${alexandria.variable} ${almarai.variable} font-almarai antialiased min-h-svh flex flex-col items-stretch`}
       >
         <TopBar />
+        <NavBar variant="white" />
         <Providers>{children}</Providers>
       </body>
     </html>
