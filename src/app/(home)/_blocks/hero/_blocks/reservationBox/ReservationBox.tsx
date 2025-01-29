@@ -17,7 +17,7 @@ const ReservationBox = () => {
           className="w-full"
           dir="rtl"
         >
-          <TabsList className="flex justify-between items-center gap-4 mb-8 bg-transparent">
+          <TabsList className="flex flex-col h-auto md:flex-row justify-between items-center gap-4 mb-8 bg-transparent">
             <div className="flex gap-4">
               <TabsTrigger
                 value="withoutVisa"
