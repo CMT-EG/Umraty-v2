@@ -242,7 +242,6 @@ export default function useHero() {
           // toast.info(res?.message);
         } else {
           router.push("/reservation?hotel=false");
-          window.location.href = "/reservation?hotel=false";
         }
       } catch (error: any) {
         console.log("ERR:", error);
