@@ -1,7 +1,6 @@
 import FrequentlyQuestions from "../(home)/_blocks/frequentlyQuestions/FrequentlyQuestions";
 import Evaluation from "./_blocks/evaluation/Evaluation";
 import Hero from "./_blocks/hero/Hero";
-import Footer from "@/global/components/footer/Footer";
 
 export default function ServiceEvaluationPage() {
   return (
@@ -9,7 +8,6 @@ export default function ServiceEvaluationPage() {
       <Hero />
       <Evaluation />
       <FrequentlyQuestions />
-      <Footer />
     </div>
   );
 }

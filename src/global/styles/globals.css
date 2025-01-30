@@ -36,3 +36,6 @@ html[dir="ltr"] .PhoneInputCountry {
 .rooms-box {
   display: none;
 }
+* {
+  caret-color: #8b6343;
+}

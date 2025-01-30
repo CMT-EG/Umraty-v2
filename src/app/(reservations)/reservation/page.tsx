@@ -1,9 +1,9 @@
 import Script from "next/script";
 import Reservation from "./_blocks/Reservation";
-import Footer from "@/global/components/footer/Footer";
+import Footer from "@/app/(appLayout)/_blocks/footer/Footer";
 import { Loader2 } from "lucide-react";
 import { Suspense } from "react";
-import NavBar from "@/global/components/navbar/NavBar";
+import NavBar from "@/app/(appLayout)/_blocks/navbar/NavBar";
 
 export default function Page() {
   return (

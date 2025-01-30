@@ -1,5 +1,4 @@
 import Hero from "./_blocks/hero/Hero";
-import Footer from "@/global/components/footer/Footer";
 import Aboutus from "./_blocks/aboutus/Aboutus";
 import Services from "./_blocks/services/Services";
 import BookingSteps from "./_blocks/bookingSteps/BookingSteps";
@@ -17,7 +16,6 @@ export default function Home() {
       <BookingSteps />
       <Testimonials />
       <FrequentlyQuestions />
-      <Footer />
     </main>
   );
 }
