@@ -92,6 +92,13 @@ export default {
         rvh: "calc(100dvh - 140px)",
         authvh: "calc(100dvh - 40px)",
       },
+      minHeight: {
+        rvh: "calc(100dvh - 140px)",
+        authvh: "calc(100dvh - 40px)",
+      },
+      maxHeight: {
+        dialogfull: "calc(100% - 560px)",
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",

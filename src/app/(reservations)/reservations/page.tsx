@@ -1,5 +1,5 @@
-import Footer from "@/global/components/footer/Footer";
-import NavBar from "@/global/components/navbar/NavBar";
+import Footer from "@/app/(appLayout)/_blocks/footer/Footer";
+import NavBar from "@/app/(appLayout)/_blocks/navbar/NavBar";
 import Reservations from "./Reservations";
 
 export default function Page() {

@@ -1,11 +1,12 @@
 import { Alexandria, Almarai } from "next/font/google";
 import Providers from "@/global/providers/Providers";
-import TopBar from "@/global/components/topBar/TopBar";
+import TopBar from "@/app/(appLayout)/_blocks/topBar/TopBar";
 import "react-day-picker/dist/style.css";
 import "@/global/styles/tailwind.css";
 import "@/global/styles/globals.css";
 import "@smastrom/react-rating/style.css";
-import NavBar from "@/global/components/navbar/NavBar";
+import NavBar from "@/app/(appLayout)/_blocks/navbar/NavBar";
+import Footer from "@/app/(appLayout)/_blocks/footer/Footer";
 
 const alexandria = Alexandria({
   variable: "--font-alexandria",
@@ -25,11 +26,12 @@ export default function RootLayout({
   return (
     <html lang="ar" dir="rtl">
       <body
-        className={`${alexandria.variable} ${almarai.variable} font-almarai antialiased min-h-svh flex flex-col items-stretch`}
+        className={`${alexandria.variable} ${almarai.variable} font-almarai antialiased min-h-dvh flex flex-col items-stretch`}
       >
         <TopBar />
         <NavBar variant="white" />
         <Providers>{children}</Providers>
+        <Footer />
       </body>
     </html>
   );

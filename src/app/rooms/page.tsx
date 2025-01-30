@@ -1,8 +1,8 @@
 import RoomsComponent from "./_blocks/roomsComponent/RoomsComponent";
-import Footer from "@/global/components/footer/Footer";
+import Footer from "@/app/(appLayout)/_blocks/footer/Footer";
 import { Suspense } from "react";
 import { Loader2 } from "lucide-react";
-import NavBar from "@/global/components/navbar/NavBar";
+import NavBar from "@/app/(appLayout)/_blocks/navbar/NavBar";
 
 export default function Page() {
   return (

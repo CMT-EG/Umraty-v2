@@ -1,6 +1,5 @@
 "use client";
 import { Button } from "@/global/shadcn/ui/button";
-import { Trash } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -11,6 +10,7 @@ import {
   // DialogTrigger,
 } from "@/global/shadcn/ui/dialog";
 import { Dispatch, SetStateAction } from "react";
+import SuccessIconSVG from "./assets/svg/SuccessIconSVG";
 
 type Props = {
   open: boolean;
@@ -41,19 +41,19 @@ export function TSuccessDialog({
           </div>
         </DialogTrigger> */}
         <DialogContent
-          className="sm:w-[500px] sm:h-96 max-sm:w-[90%] flex flex-col gap-8 items-center justify-center"
+          className="sm:w-[500px] max-sm:w-[90%] flex flex-col gap-8 items-center justify-center rounded-[20px]"
           onInteractOutside={(e) => e.preventDefault()}
           onPointerDownOutside={(e) => e.preventDefault()}
         >
-          <div className="h-24 w-24 flex justify-center items-center rounded-full bg-[#FF4C51]">
-            <div className="h-14 w-14 flex justify-center items-center rounded-full shadow-[0px_20px_40px_0px_rgba(0,0,0,0.30)] bg-white">
-              <Trash className="w-6 h-6 text-[#FF4C51]" />
+          <div className="h-[140px] w-[140px] flex justify-center items-center rounded-full bg-[#EBFEF4] shrink-0">
+            <div className="h-[104px] w-[104px] shrink-0 flex justify-center items-center rounded-full bg-[#A4F6CE]">
+              <SuccessIconSVG className="w-[54px] h-[54px]" />
             </div>
           </div>
 
           <DialogHeader className="flex flex-col gap-4">
             {title && (
-              <DialogTitle className="text-center text-2xl font-medium leading-none">
+              <DialogTitle className="text-center text-[#131416] text-[28px] md:text-[40px] font-extrabold">
                 {title}
               </DialogTitle>
             )}
@@ -63,10 +63,9 @@ export function TSuccessDialog({
               </DialogDescription>
             )}
           </DialogHeader>
-          <DialogFooter className="flex gap-3 !justify-center !items-center">
+          <DialogFooter className="flex gap-3 !justify-center !items-center w-full">
             <Button
-              className=" h-[42px] w-full shrink-1 text-[#050505] text-[15px] font-medium uppercase leading-relaxed tracking-wide"
-              variant="outline"
+              className="h-[42px] w-full shrink-1 font-extrabold rounded-full bg-[#0abf7e] hover:bg-[#0abf7ecc] text-[#fbfcfc]"
               onClick={() => setOpen(false)}
             >
               {btnText}
