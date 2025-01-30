@@ -94,7 +94,7 @@ export default function useRoomsComponent() {
       });
       // toast.warn("من فضلك اختار الغرف");
     } else {
-      window.location.href = "/reservation?hotel=true";
+      // window.location.href = "/reservation?hotel=true";
     }
   };
   return {

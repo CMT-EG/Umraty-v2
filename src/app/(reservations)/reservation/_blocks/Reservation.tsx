@@ -9,7 +9,7 @@ import StepsContainer from "./_blocks/stepsContainer/StepsContainer";
 import { API_ROOT } from "@/global/env/variablesEnv";
 import { roundToTwoDecimals } from "@/global/utils/numbers";
 import { InfoCheckIcon } from "@/global/assets/svg/InfoCheckIcon";
-import { AuthDialog } from "@/app/(auth)/shared/_blocks/authDialog/AuthDialog";
+// import { AuthDialog } from "@/app/(auth)/shared/_blocks/authDialog/AuthDialog";
 import { creditCardType } from "./_blocks/stepsContainer/_blocks/thirdStep/ThirdStep";
 import requestHelpers from "@/global/shadcn/lib/requestHelpers";
 import { toast } from "@/global/shadcn/hooks/use-toast";
@@ -132,11 +132,11 @@ function Reservation() {
   };
 
   const daysDifference = getDaysDifference(startDate, finishDate);
-  const hotelRequired = new URLSearchParams(window.location.search).get(
+  const hotelRequired = typeof window !== "undefined" && new URLSearchParams(window.location.search).get(
     "hotel"
   );
   const willPay =
-    new URLSearchParams(window.location.search).get("will_pay") === "true";
+  typeof window !== "undefined" &&  new URLSearchParams(window.location.search).get("will_pay") === "true";
   console.log("HOTEL REQUIRED:", hotelRequired === "true");
   const rooms =
     hotelRequired === "true"
@@ -219,7 +219,7 @@ function Reservation() {
     const dateTo = finishDate!.toISOString().split("T")[0]; // End date in YYYY-MM-DD format
 
     // Get the search param "hotelRequired" from the URL (assuming you have access to it via `searchParams` or `router.query`)
-    const hotelRequired = new URLSearchParams(window.location.search).get(
+    const hotelRequired = typeof window !== "undefined" && new URLSearchParams(window.location.search).get(
       "hotel"
     );
 
@@ -264,7 +264,10 @@ function Reservation() {
       const sessionID = res?.data?.session_id;
       if (res.status === 201) {
         if (!urgent) {
-          if ((window as any).GeideaCheckout) {
+          if (
+            typeof window !== "undefined" &&
+            (window as any).GeideaCheckout
+          ) {
             const onSuccess = () => {
               console.log("Payment Success");
             };
@@ -275,7 +278,7 @@ function Reservation() {
               console.log("Payment Cancelled");
             };
 
-            const payment = new (window as any).GeideaCheckout(
+            const payment = typeof window !== "undefined" && new (window as any).GeideaCheckout(
               onSuccess,
               onError,
               onCancel
@@ -305,7 +308,7 @@ function Reservation() {
                 console.log("Payment Cancelled");
               };
               // Initialize the GeideaCheckout
-              const payment = new (window as any).GeideaCheckout(
+              const payment = typeof window !== "undefined" && new (window as any).GeideaCheckout(
                 onSuccess,
                 onError,
                 onCancel
@@ -419,10 +422,10 @@ function Reservation() {
           </div>
         </div>
       )}
-      <AuthDialog
+      {/* <AuthDialog
         dialogOpen={loginDialogOpen}
         setDialogOpen={setLoginDialogOpen}
-      />
+      /> */}
     </>
   );
 }
