@@ -8,10 +8,21 @@ import LangChanger from "./blocks/langChanger/LangChanger";
 import { useEffect, useState } from "react";
 import { deleteCookie, getCookie } from "cookies-next/client";
 import { cn } from "@/global/shadcn/lib/utils";
+import { PhonePopup } from "./blocks/reports/PhonePopup";
+import { Dialog, DialogTrigger } from "@/global/shadcn/ui/dialog";
+import OTPVerification from "./blocks/reports/OTPVerification";
+import { ProblemReport } from "./blocks/reports/ProblemReport";
+import { SuccessPopup } from "./blocks/reports/SuccessPopup";
 
-export default function NavbarLinks({ open = false }: { open?: boolean }) {
+export default function NavbarLinks({ open = false }: { open?: boolean; }) {
   const pathname = usePathname();
   const [showSignIn, setShowSingIn] = useState(false);
+  const [currentStep, setCurrentStep] = useState(1);
+  console.log(currentStep);
+
+  const handleBackButton = () => {
+    setCurrentStep(currentStep - 1);
+  };
 
   useEffect(() => {
     const accessToken = getCookie("accessToken");
@@ -35,11 +46,10 @@ export default function NavbarLinks({ open = false }: { open?: boolean }) {
           <li key={index}>
             <Link
               href={tab?.href}
-              className={`text-[0.8rem] py-2 md:text-sm px-2 md:px-4 border-b-2 ${
-                pathname === tab?.href
-                  ? "text-primary border-primary"
-                  : `text-[#777E90] border-transparent hover:text-primary hover:border-primary`
-              } text-[#777e90] text-sm font-extrabold font-['Almarai'] transition-colors text-nowrap`}
+              className={`text-[0.8rem] py-2 md:text-sm px-2 md:px-4 border-b-2 ${pathname === tab?.href
+                ? "text-primary border-primary"
+                : `text-[#777E90] border-transparent hover:text-primary hover:border-primary`
+                } text-[#777e90] text-sm font-extrabold font-['Almarai'] transition-colors text-nowrap`}
             >
               {tab?.title}
             </Link>
@@ -48,25 +58,30 @@ export default function NavbarLinks({ open = false }: { open?: boolean }) {
       </div>
       <div className="flex flex-col lg:flex-row items-start lg:items-center justify-center w-fit gap-3 lg:gap-0">
         <li>
-          <Link
-            href={"?report=true"}
-            className={`text-[0.8rem] py-2 md:text-sm px-2 md:px-4 border-b-2 ${
-              pathname === "/faq"
+          <Dialog>
+            <DialogTrigger
+              className={`text-[0.8rem] py-2 md:text-sm px-2 md:px-4 border-b-2 ${pathname === "/faq"
                 ? "text-primary border-primary"
                 : `text-[#777E90] border-transparent hover:text-primary hover:border-primary`
-            } text-[#777e90] text-sm font-extrabold font-['Almarai'] transition-colors text-nowrap`}
-          >
-            الإبلاغ
-          </Link>
+                } text-[#777e90] text-sm font-extrabold font-['Almarai'] transition-colors text-nowrap`}
+              onClick={() => setCurrentStep(1)}
+            >
+              الإبلاغ
+            </DialogTrigger>
+            {currentStep === 1 ? <PhonePopup setCurrentStep={() => setCurrentStep(2)} />
+              : currentStep === 2 ? <OTPVerification setCurrentStep={() => setCurrentStep(3)} handleBackButton={handleBackButton} />
+                : currentStep === 3 ? <ProblemReport setCurrentStep={() => setCurrentStep(4)} />
+                  : currentStep === 4 ? <SuccessPopup />
+                    : null}
+          </Dialog>
         </li>
         <li>
           <Link
             href={"/faq"}
-            className={`text-[0.8rem] py-2 md:text-sm px-2 md:px-4 border-b-2 ${
-              pathname === "/faq"
-                ? "text-primary border-primary"
-                : `text-[#777E90] border-transparent hover:text-primary hover:border-primary`
-            } text-[#777e90] text-sm font-extrabold font-['Almarai'] transition-colors text-nowrap`}
+            className={`text-[0.8rem] py-2 md:text-sm px-2 md:px-4 border-b-2 ${pathname === "/faq"
+              ? "text-primary border-primary"
+              : `text-[#777E90] border-transparent hover:text-primary hover:border-primary`
+              } text-[#777e90] text-sm font-extrabold font-['Almarai'] transition-colors text-nowrap`}
           >
             الأسئلة الشائعة
           </Link>
