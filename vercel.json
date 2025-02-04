@@ -2,6 +2,8 @@
     "installCommand": "bun install",
     "buildCommand": "bun run build",
     "env": {
-        "NEXT_PUBLIC_API_URL": "https://umraty-apis.up.railway.app"
+        "NEXT_PUBLIC_API_URL": "https://umraty-apis.up.railway.app",
+        "NEXT_PUBLIC_RESERVATIONS_API_URL": "https://api.aviationstack.com/v1/",
+        "NEXT_PUBLIC_RESERVATIONS_API_ACCESS_KEY": "302803dccedee190d06e4d5a4c130e2d"
     }
 }
