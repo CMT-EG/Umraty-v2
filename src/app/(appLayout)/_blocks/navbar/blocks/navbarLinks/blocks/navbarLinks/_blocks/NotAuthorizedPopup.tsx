@@ -1,18 +1,15 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import PhoneInput from '@/global/components/phoneInput/PhoneInput';
 import { DialogClose, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/global/shadcn/ui/dialog';
 import Image from 'next/image';
 import logo from "@/global/assets/logo/logo-dark.png";
 import Link from 'next/link';
+import { useNotAuthorized } from '../hooks/useNotAuthorized';
 
 export const NotAuthorizedPopup = () => {
+    const { phoneValue, handleValueChange } = useNotAuthorized();
 
-    const [phoneValue, setPhoneValue] = useState({ phone_number: "", phone_code: "966" });
-
-    const handleValueChange = (newValue: { phone_number: string; phone_code: string; }) => {
-        setPhoneValue(newValue);
-    };
 
     return (
         <DialogContent>

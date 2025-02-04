@@ -3,10 +3,7 @@ import Link from "next/link";
 import { GoPerson } from "react-icons/go";
 import { Button } from "@/global/shadcn/ui/button";
 import { rightTabs } from "../../constant/tabs";
-import { redirect, RedirectType, usePathname } from "next/navigation";
 import LangChanger from "../langChanger/LangChanger";
-import { useEffect, useState } from "react";
-import { deleteCookie, getCookie } from "cookies-next/client";
 import { cn } from "@/global/shadcn/lib/utils";
 import { PhonePopup } from "../reports/PhonePopup";
 import { Dialog, DialogTrigger } from "@/global/shadcn/ui/dialog";
@@ -14,25 +11,10 @@ import OTPVerification from "../reports/OTPVerification";
 import { ProblemReport } from "../reports/ProblemReport";
 import { SuccessPopup } from "../reports/SuccessPopup";
 import { NotAuthorizedPopup } from "./_blocks/NotAuthorizedPopup";
+import { useNavbarLinks } from "./hooks/useNavbarLinks";
 
 export default function NavbarLinks({ open = false }: { open?: boolean; }) {
-  const pathname = usePathname();
-  const [showSignIn, setShowSingIn] = useState(false);
-  const [currentStep, setCurrentStep] = useState(1);
-  console.log(showSignIn, getCookie("accessToken"));
-  const handleBackButton = () => {
-    setCurrentStep(currentStep - 1);
-  };
-
-  useEffect(() => {
-    const accessToken = getCookie("accessToken");
-    setShowSingIn(!accessToken);
-  }, []);
-
-  const handleLogout = () => {
-    deleteCookie("accessToken");
-    redirect("/login", RedirectType.replace);
-  };
+  const { pathname, showSignIn, currentStep, handleBackButton, handleLogout, setCurrentStep } = useNavbarLinks();
 
   return (
     <ul
