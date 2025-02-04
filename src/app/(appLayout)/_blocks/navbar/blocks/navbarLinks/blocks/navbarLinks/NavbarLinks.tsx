@@ -2,24 +2,24 @@
 import Link from "next/link";
 import { GoPerson } from "react-icons/go";
 import { Button } from "@/global/shadcn/ui/button";
-import { rightTabs } from "./constant/tabs";
+import { rightTabs } from "../../constant/tabs";
 import { redirect, RedirectType, usePathname } from "next/navigation";
-import LangChanger from "./blocks/langChanger/LangChanger";
+import LangChanger from "../langChanger/LangChanger";
 import { useEffect, useState } from "react";
 import { deleteCookie, getCookie } from "cookies-next/client";
 import { cn } from "@/global/shadcn/lib/utils";
-import { PhonePopup } from "./blocks/reports/PhonePopup";
+import { PhonePopup } from "../reports/PhonePopup";
 import { Dialog, DialogTrigger } from "@/global/shadcn/ui/dialog";
-import OTPVerification from "./blocks/reports/OTPVerification";
-import { ProblemReport } from "./blocks/reports/ProblemReport";
-import { SuccessPopup } from "./blocks/reports/SuccessPopup";
+import OTPVerification from "../reports/OTPVerification";
+import { ProblemReport } from "../reports/ProblemReport";
+import { SuccessPopup } from "../reports/SuccessPopup";
+import { NotAuthorizedPopup } from "./_blocks/NotAuthorizedPopup";
 
 export default function NavbarLinks({ open = false }: { open?: boolean; }) {
   const pathname = usePathname();
   const [showSignIn, setShowSingIn] = useState(false);
   const [currentStep, setCurrentStep] = useState(1);
-  console.log(currentStep);
-
+  console.log(showSignIn, getCookie("accessToken"));
   const handleBackButton = () => {
     setCurrentStep(currentStep - 1);
   };
@@ -44,15 +44,29 @@ export default function NavbarLinks({ open = false }: { open?: boolean; }) {
       <div className="flex flex-col lg:flex-row items-start lg:items-center gap-3 lg:gap-5">
         {rightTabs?.map((tab, index) => (
           <li key={index}>
-            <Link
-              href={tab?.href}
-              className={`text-[0.8rem] py-2 md:text-sm px-2 md:px-4 border-b-2 ${pathname === tab?.href
-                ? "text-primary border-primary"
-                : `text-[#777E90] border-transparent hover:text-primary hover:border-primary`
-                } text-[#777e90] text-sm font-extrabold font-['Almarai'] transition-colors text-nowrap`}
-            >
-              {tab?.title}
-            </Link>
+            {showSignIn && tab?.href === "/all_reservations" ? <Dialog>
+              <DialogTrigger
+                className={`text-[0.8rem] py-2 md:text-sm px-2 md:px-4 border-b-2 ${pathname === "/faq"
+                  ? "text-primary border-primary"
+                  : `text-[#777E90] border-transparent hover:text-primary hover:border-primary`
+                  } text-[#777e90] text-sm font-extrabold font-['Almarai'] transition-colors text-nowrap`}
+                onClick={() => { }}
+              >
+                الحجوزات
+              </DialogTrigger>
+              {pathname !== "/login" && <NotAuthorizedPopup />}
+            </Dialog>
+              :
+              <Link
+                href={tab?.href}
+                className={`text-[0.8rem] py-2 md:text-sm px-2 md:px-4 border-b-2 ${pathname === tab?.href
+                  ? "text-primary border-primary"
+                  : `text-[#777E90] border-transparent hover:text-primary hover:border-primary`
+                  } text-[#777e90] text-sm font-extrabold font-['Almarai'] transition-colors text-nowrap`}
+              >
+                {tab?.title}
+              </Link>
+            }
           </li>
         ))}
       </div>

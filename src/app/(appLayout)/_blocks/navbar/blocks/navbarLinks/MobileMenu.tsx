@@ -1,5 +1,5 @@
 import { Sheet, SheetContent, SheetTrigger } from "@/global/shadcn/ui/sheet";
-import NavbarLinks from "./NavbarLinks";
+import NavbarLinks from "./blocks/navbarLinks/NavbarLinks";
 import { Button } from "@/global/shadcn/ui/button";
 import { FaGripLines } from "react-icons/fa";
 import { useState } from "react";
