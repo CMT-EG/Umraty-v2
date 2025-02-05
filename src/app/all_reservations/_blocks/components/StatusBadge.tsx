@@ -7,7 +7,7 @@ export const StatusBadge = ({ status }: { status: BookingStatus; }) => {
     };
 
     return (
-        <div className={`inline-block px-3 py-1 rounded-lg ${statusStyles[status] || ''}`}>
+        <div className={`inline-block px-3 py-1 font-bold text-sm rounded-lg ${statusStyles[status] || ''}`}>
             {status}
         </div>
     );
