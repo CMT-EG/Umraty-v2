@@ -10,7 +10,7 @@ export default function Footer() {
   return (
     <FooterDisplay>
       <>
-        <div className="relative z-10 py-[100px] w-full max-w-[1132px] flex sm:items-center items-start justify-between gap-5 min-[1050px]:flex-row flex-col">
+        <div className="relative z-10 py-10 w-full max-w-[1132px] flex sm:items-center items-start justify-between gap-5 min-[1050px]:flex-row flex-col">
           <div className="flex flex-col items-start">
             <Image
               src={Logo}
