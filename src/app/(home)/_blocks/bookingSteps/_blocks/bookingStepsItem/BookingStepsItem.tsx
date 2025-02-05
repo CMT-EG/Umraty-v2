@@ -43,10 +43,10 @@ export default function BookingStepsItem({ step, index, stepslength }: Props) {
             {/* {disappearDashLine && ( */}
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width={`${530 - 56 * (stepslength - 2)}`}
+              width={`${498 - 56 * (stepslength - 2)}`}
               height="137"
               fill="none"
-              viewBox={`0 0 ${530 - 56 * (stepslength - 2)} 137`}
+              viewBox={`0 0 ${498 - 56 * (stepslength - 2)} 137`}
               className={cn(
                 index !== stepslength - 1 ? "block" : "hidden",
                 index % 2 !== 0 ? "sm:block" : "sm:hidden",
