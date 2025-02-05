@@ -10,7 +10,7 @@ const SuccessIconSVG = (props: any) => (
     {...props}
   >
     <path
-      stroke="#0ABF7E"
+      stroke={props?.stroke || "#0ABF7E"}
       strokeLinecap="round"
       strokeLinejoin="round"
       strokeWidth="3"
@@ -18,7 +18,7 @@ const SuccessIconSVG = (props: any) => (
       {...props}
     ></path>
     <path
-      stroke="#0ABF7E"
+      stroke={props?.stroke || "#0ABF7E"}
       strokeLinecap="round"
       strokeLinejoin="round"
       strokeWidth="3"

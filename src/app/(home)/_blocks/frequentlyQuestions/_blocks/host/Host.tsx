@@ -13,10 +13,10 @@ export default function Host() {
         .fill(1)
         ?.map((_, i) => (
           <AccordionItem key={i} value={`item-${i}`}>
-            <AccordionTrigger>
+            <AccordionTrigger className="py-[33px]">
               كيفية البدء في استخدام موقع حجز عمرة؟
             </AccordionTrigger>
-            <AccordionContent className="flex flex-col gap-4">
+            <AccordionContent className="flex flex-col gap-6">
               <p>
                 يعمل موقع حجز عمرة على تسهيل تجربة الحجز للمستخدمين من خلال
                 واجهة مستخدم بسيطة وسهلة الاستخدام. يمكن للمستخدمين البحث عن
@@ -28,7 +28,7 @@ export default function Host() {
               </p>
               <Link
                 href="#"
-                className="inline-flex justify-center items-center gap-3 border-[#e5e8eb] border-2 mt-5 px-6 py-4 rounded-[90px] w-[200px]"
+                className="inline-flex justify-center items-center gap-3 border-[#e5e8eb] border-2 px-6 py-4 rounded-[90px] w-[200px]"
               >
                 تعرف على المزيد
               </Link>

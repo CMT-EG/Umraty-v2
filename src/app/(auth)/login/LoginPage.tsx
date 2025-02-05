@@ -6,10 +6,10 @@ import { Form } from "@/global/shadcn/ui/form";
 import Image from "next/image";
 import TButton from "@/global/components/TForm/TButton";
 import Link from "next/link";
-import { MoveRight } from "lucide-react";
 import WelcomeTitle from "@/global/components/welcomeTitle/WelcomeTitle";
 import TPhoneField from "@/global/components/TForm/TPhoneField";
 import { OtpForm } from "./_blocks/otpForm/OtpForm";
+import BackButton from "@/global/components/backButton/BackButton";
 
 const LoginPage = () => {
   const {
@@ -29,7 +29,7 @@ const LoginPage = () => {
           onSubmit={form.handleSubmit(onSubmit)}
           className="relative flex justify-center items-center w-fit gap-8 p-5 border shadow-2xl m-10 rounded-2xl h-full mx-auto overflow-hidden bg-white"
         >
-          <Link
+          {/* <Link
             href={"/"}
             className="absolute top-2 start-2 h-6 justify-end items-center gap-2 inline-flex w-fit p-5"
           >
@@ -37,7 +37,8 @@ const LoginPage = () => {
             <div className="text-right text-[#7b7b7b] font-bold">
               الرجوع للخلف
             </div>
-          </Link>
+          </Link> */}
+          <BackButton isAbsolute />
           <div className="flex flex-col gap-16 relative w-fit  lg:w-[550px] shrink-0">
             {/* <div className="absolute top-2 start-2">
               <ChangeLang />

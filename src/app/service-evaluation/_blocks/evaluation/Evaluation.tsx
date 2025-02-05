@@ -6,7 +6,7 @@ export default function Evaluation() {
   return (
     <section className="container flex flex-col items-center justify-center gap-5">
       <HeaderContent />
-      <SelectTrip />
+      {/* <SelectTrip /> */}
       <EvaluationForm />
     </section>
   );

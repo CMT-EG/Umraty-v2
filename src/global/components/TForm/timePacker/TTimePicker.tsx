@@ -83,7 +83,7 @@ const TTimePicker: React.FC<TimePickerFormFieldProps> = ({
                     disabled && "opacity-50 cursor-not-allowed",
                     !!get(form.formState?.errors, name)
                       ? "border-delete"
-                      : "border-gray-300",
+                      : "border-[#ededed] border-2",
                     className
                   )}
                   readOnly={readOnly}

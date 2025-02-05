@@ -20,6 +20,7 @@ function HeroSection() {
         <div className="absolute bottom-0 translate-y-2/3 md:inset-x-[5.5rem] inset-x-5 md:px-8 md:py-11 px-[0.875rem] py-[0.875rem] flex md:flex-row flex-col md:items-center items-stretch gap-4 bg-white rounded-[1.25rem] shadow-[0px_4px_42px_0px] shadow-black/10">
           <div className="flex items-center gap-2 sm:gap-4 flex-grow">
             <DatePicker
+              title="ادخل تاريخ البدأ"
               className="flex-grow"
               placeholder="ادخل تاريخ البدأ"
               date={startDate}
@@ -29,6 +30,7 @@ function HeroSection() {
               <ArrowLeftRight className="text-[#1C1B1F] size-4" />
             </div>
             <DatePicker
+              title="ادخل تاريخ الإنتهاء"
               className="flex-grow"
               placeholder="ادخل تاريخ الإنتهاء"
               date={finishDate}

@@ -1,7 +1,10 @@
 "use client";
 import { memo, useRef } from "react";
-import PlyrCustom from "./PlyrCustom";
-
+// import PlyrCustom from "./PlyrCustom";
+import dynamic from "next/dynamic";
+const PlyrCustom = dynamic(() => import("./PlyrCustom"), {
+  ssr: false,
+});
 type Props = {
   url: string;
   poster?: string;

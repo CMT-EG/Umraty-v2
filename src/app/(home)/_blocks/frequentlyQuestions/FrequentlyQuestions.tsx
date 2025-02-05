@@ -16,7 +16,7 @@ import ElectricSVG from "./assets/svg/ElectricSVG";
 
 export default function FrequentlyQuestions() {
   return (
-    <section className="container flex flex-col gap-20 items-center justify-center py-16 w-full">
+    <section className="flex flex-col gap-20 items-center justify-center px-[160px] py-[100px] w-full">
       <HeaderSectionTwo
         prevText={"تعرف على كيفية البدء"}
         title={"الأسئلة المتداولة"}
@@ -27,7 +27,7 @@ export default function FrequentlyQuestions() {
       <Tabs
         dir="rtl"
         defaultValue="general"
-        className="flex flex-col md:flex-row justify-between items-center md:items-start gap-10 w-full"
+        className="flex flex-col md:flex-row justify-between items-center md:items-start gap-10 lg:gap-[150px] xl:gap-[225px] w-full"
       >
         <TabsList className="flex md:flex-col space-y-1 h-auto bg-white flex-wrap">
           <TabsTrigger

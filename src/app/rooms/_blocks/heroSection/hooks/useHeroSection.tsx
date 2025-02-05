@@ -61,7 +61,7 @@ export default function useHeroSection() {
         });
       } else {
         const newUrl = `/rooms?date_from=${formattedStartDate}&date_to=${formattedFinishDate}`;
-        window.location.href = newUrl;
+        // window.location.href = newUrl;
       }
       console.log(res);
     } catch (error: any) {
