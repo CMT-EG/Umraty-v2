@@ -5,7 +5,7 @@ export const rightTabs = [
   },
   {
     title: "الحجوزات",
-    href: "/reservations",
+    href: "/all_reservations",
   },
   // {
   //   title: "تقييم الخدمة",

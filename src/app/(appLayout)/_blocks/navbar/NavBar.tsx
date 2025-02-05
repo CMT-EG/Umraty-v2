@@ -3,7 +3,7 @@ import Image from "next/image";
 import { cn } from "@/global/shadcn/lib/utils";
 import logo from "@/global/assets/logo/logo-dark.png";
 import { Separator } from "@/global/shadcn/ui/separator";
-import NavbarLinks from "./blocks/navbarLinks/NavbarLinks";
+import NavbarLinks from "./blocks/navbarLinks/blocks/navbarLinks/NavbarLinks";
 import { MobileMenu } from "./blocks/navbarLinks/MobileMenu";
 import Link from "next/link";
 import NavBarDisplay from "./blocks/navbarLinks/blocks/navBarDisplay/NavBarDisplay";
@@ -31,9 +31,8 @@ export default function NavBar({
               src={logo}
               width={69.17}
               height={36}
-              className={`md:h-16 h-11 w-fit ${
-                variant === "white" ? "brightness-0" : ""
-              }`}
+              className={`md:h-16 h-11 w-fit ${variant === "white" ? "brightness-0" : ""
+                }`}
               alt="Logo"
             />
           </Link>

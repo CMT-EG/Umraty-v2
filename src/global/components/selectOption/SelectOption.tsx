@@ -45,7 +45,7 @@ export function SelectOption({
                 <div className="flex items-center gap-3">
                     {icon}
                     <div className="flex flex-col w-full">
-                        <p className="text-black font-bold mb-1">{title} {required && <span className="text-red-500">*</span>}</p>
+                        <p className="text-black font-bold mb-1 text-start">{title} {required && <span className="text-red-500">*</span>}</p>
                         <SelectTrigger ref={triggerRef} className={`${triggerClassName} text-[#777E90] !appearance-none focus:outline-none`}>
                             <SelectValue placeholder={placeholder} />
                         </SelectTrigger>
