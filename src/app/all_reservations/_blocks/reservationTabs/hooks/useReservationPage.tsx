@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 
 export const useReservationPage = () => {
     const getStatusColor = (status: string): string => {
@@ -10,5 +11,11 @@ export const useReservationPage = () => {
                 return 'bg-yellow-50 text-yellow-600';
         }
     };
-    return { getStatusColor };
+    const [activeTab, setActiveTab] = useState("allReservations");
+
+    useEffect(() => {
+        localStorage.setItem("activeTab", activeTab);
+    }, [activeTab]);
+
+    return { getStatusColor, activeTab, setActiveTab };
 };

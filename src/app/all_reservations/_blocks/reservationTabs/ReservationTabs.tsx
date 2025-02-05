@@ -1,15 +1,12 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/global/shadcn/ui/tabs";
 import { BookingGroup } from "./_blocks/BookingGroup";
 import { fakeBookingData } from "../../constants/fakeData";
+import { useReservationPage } from "./hooks/useReservationPage";
 
 export const ReservationTabs = () => {
-    const [activeTab, setActiveTab] = useState("allReservations");
-
-    useEffect(() => {
-        localStorage.setItem("activeTab", activeTab);
-    }, [activeTab]);
+    const { activeTab, setActiveTab } = useReservationPage();
 
 
     return (
