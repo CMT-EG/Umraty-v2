@@ -16,7 +16,7 @@ import ElectricSVG from "./assets/svg/ElectricSVG";
 
 export default function FrequentlyQuestions() {
   return (
-    <section className="container flex flex-col gap-20 items-center justify-center py-16 w-full">
+    <section className="container flex flex-col gap-20 items-center justify-center p-5 w-full">
       <HeaderSectionTwo
         prevText={"تعرف على كيفية البدء"}
         title={"الأسئلة المتداولة"}
