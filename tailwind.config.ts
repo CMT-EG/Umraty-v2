@@ -61,6 +61,9 @@ export default {
           "950": "#2F1E19",
           DEFAULT: "#B49164",
         },
+        "primary-foreground": {
+          DEFAULT: "#ffffff",
+        },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
           foreground: "hsl(var(--secondary-foreground))",
@@ -87,6 +90,9 @@ export default {
           "4": "hsl(var(--chart-4))",
           "5": "hsl(var(--chart-5))",
         },
+        view: "#56CA00",
+        edit: "#16B1FF",
+        delete: "#FF4C51",
       },
       height: {
         rvh: "calc(100dvh - 140px)",
@@ -113,9 +119,12 @@ export default {
           "linear-gradient(-133deg, rgba(236, 248, 252, 0.84) 42.92%, rgba(236, 248, 252, 0.00) 100%)",
         reservation:
           "linear-gradient(to bottom, transparent 70px, #EBE4D6 70px, #EBE4D6 100%)",
+        steps:
+          "linear-gradient(to bottom, transparent 70px, #ffffff 70px, #ffffff 100%)",
         "login-background": 'url("/login_background.avif")',
         "hero-background": 'url("/hero_background.avif")',
         "rooms-background": 'url("/rooms_background.avif")',
+        "thirdHero-background": 'url("/thirdHero_background.webp")',
       },
       boxShadow: {
         "3d": "rgba(0, 0, 0, 0.3) 0px 1px 2px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset",

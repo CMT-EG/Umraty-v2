@@ -88,7 +88,7 @@ function TPhoneField({
                     "!mt-0 !pt-0",
                     !!get(form.formState?.errors, name)
                       ? "border-delete"
-                      : "border-gray-300"
+                      : "border-[#ededed] border-2"
                   )}
                 >
                   <div
@@ -105,7 +105,7 @@ function TPhoneField({
                       onChange={(value) => onChange(value)}
                       // inputProps={props}
                       containerClass="w-fullblock !h-10 !rounded-md font-Alexandria w-full"
-                      inputClass="w-full !h-10 !rounded-md flex h-10 w-full rounded-md border bg-background px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm border-gray-300"
+                      inputClass="w-full !h-10 !rounded-md flex h-10 w-full rounded-md border bg-background px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm border-[#ededed] border-2"
                       buttonClass="!h-10 !w-10 !rounded-md !border-e-0"
                       dropdownClass="w-full !rounded-md"
                       searchClass="!h-10 !rounded-md flex items-center"
