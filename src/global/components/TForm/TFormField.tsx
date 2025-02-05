@@ -30,6 +30,7 @@ type TFormField = {
   isHorizontal?: boolean;
   readOnlyClassName?: string;
   isRequiredStyle?: boolean;
+  labelClassName?: string;
 };
 
 function TFormField({
@@ -47,6 +48,7 @@ function TFormField({
   isHorizontal = false,
   readOnlyClassName,
   isRequiredStyle,
+  labelClassName,
   ...props
 }: TFormField) {
   const { className, ...propsField } = props;
@@ -84,7 +86,8 @@ function TFormField({
               <FormLabel
                 className={cn(
                   "text-[#131416] text-base font-extrabold",
-                  isHorizontal && "text-nowrap w-[150px] truncate py-1"
+                  isHorizontal && "text-nowrap w-[150px] truncate py-1",
+                  labelClassName
                 )}
               >
                 {label}{" "}
@@ -101,22 +104,23 @@ function TFormField({
                       isHorizontal && "w-full",
                       !!get(form.formState?.errors, name)
                         ? "border-delete"
-                        : "border-gray-300",
+                        : "border-[#ededed] border-2",
                       className
                     )}
                     aria-label={labelInput || placeholder}
                     placeholder={placeholder}
-                    onChange={(e) =>
-                      propsField.inputMode === "decimal" ||
-                      propsField.inputMode === "numeric" ||
-                      propsField.type === "number"
-                        ? onChange(
-                            e.target.value
-                              ? parseFloat(e.target.value)
-                              : undefined
-                          )
-                        : onChange(e.target.value)
-                    }
+                    onChange={(e) => {
+                      if (
+                        propsField.inputMode === "decimal" ||
+                        propsField.inputMode === "numeric" ||
+                        propsField.type === "number"
+                      ) {
+                        const value = e.target.value.replace(/[^0-9]/g, "");
+                        onChange(value ? parseFloat(value) : undefined);
+                      } else {
+                        onChange(e.target.value);
+                      }
+                    }}
                     {...propsField}
                     {...fieldProps}
                     ref={forwardedRef}
@@ -131,23 +135,24 @@ function TFormField({
                       props.readOnly && readOnlyClassName,
                       !!get(form.formState?.errors, name)
                         ? "border-delete"
-                        : "border-gray-300",
+                        : "border-[#ededed] border-2",
                       className
                     )}
                     style={{ paddingInlineEnd: paddingEnd }}
                     aria-label={labelInput || placeholder}
                     placeholder={placeholder}
-                    onChange={(e) =>
-                      propsField.inputMode === "decimal" ||
-                      propsField.inputMode === "numeric" ||
-                      propsField.type === "number"
-                        ? onChange(
-                            e.target.value
-                              ? parseFloat(e.target.value)
-                              : undefined
-                          )
-                        : onChange(e.target.value)
-                    }
+                    onChange={(e) => {
+                      if (
+                        propsField.inputMode === "decimal" ||
+                        propsField.inputMode === "numeric" ||
+                        propsField.type === "number"
+                      ) {
+                        const value = e.target.value.replace(/[^0-9]/g, "");
+                        onChange(value ? parseFloat(value) : undefined);
+                      } else {
+                        onChange(e.target.value);
+                      }
+                    }}
                     {...propsField}
                     {...fieldProps}
                     ref={forwardedRef}

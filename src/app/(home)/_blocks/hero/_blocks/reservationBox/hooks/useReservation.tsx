@@ -4,11 +4,8 @@ import { useState } from 'react';
 export const useReservation = () => {
     const [currentTab, setCurrentTab] = useState("withoutVisa");
     const [step, setStep] = useState(1);
-    const [adults, setAdults] = useState(0);
-    const [children, setChildren] = useState(0);
-    const [infants, setInfants] = useState(0);
+    const [pilgrims, setPilgrims] = useState(0);
 
-    const total = adults + children + infants;
 
     const increment = (setter: React.Dispatch<React.SetStateAction<number>>) => {
         setter((prev) => prev + 1);
@@ -33,13 +30,8 @@ export const useReservation = () => {
         setStep,
         handleNextStep,
         handleSelectionChange,
-        adults,
-        setAdults,
-        children,
-        setChildren,
-        infants,
-        setInfants,
-        total,
+        pilgrims,
+        setPilgrims,
         increment,
         decrement
     };
