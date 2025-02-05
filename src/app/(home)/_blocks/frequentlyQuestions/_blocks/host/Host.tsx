@@ -13,7 +13,7 @@ export default function Host() {
         .fill(1)
         ?.map((_, i) => (
           <AccordionItem key={i} value={`item-${i}`}>
-            <AccordionTrigger>
+            <AccordionTrigger className="py-[33px]">
               كيفية البدء في استخدام موقع حجز عمرة؟
             </AccordionTrigger>
             <AccordionContent className="flex flex-col gap-4">
