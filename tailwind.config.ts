@@ -115,6 +115,7 @@ export default {
           "linear-gradient(to bottom, transparent 70px, #EBE4D6 70px, #EBE4D6 100%)",
         "login-background": 'url("/login_background.avif")',
         "hero-background": 'url("/hero_background.avif")',
+        "reservation-background": 'url("/reservation_background.png")',
         "rooms-background": 'url("/rooms_background.avif")',
       },
       boxShadow: {

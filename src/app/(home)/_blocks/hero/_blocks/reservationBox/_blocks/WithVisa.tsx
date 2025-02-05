@@ -2,7 +2,6 @@
 import { TabsContent } from "@/global/shadcn/ui/tabs";
 import React from "react";
 import { SelectOption } from "@/global/components/selectOption/SelectOption";
-// import PreferenceSelector from "@/global/components/PreferenceSelect/PreferenceSelector";
 import { useReservation } from "../hooks/useReservation";
 import { fakeData } from "../constants/data";
 import { HotelIcon, Plane } from "lucide-react";
