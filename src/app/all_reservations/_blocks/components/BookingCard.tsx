@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { InfoRow } from "./InfoRow";
 import { StatusBadge } from "./StatusBadge";
 
@@ -56,9 +57,9 @@ export const BookingCard = ({ booking }: { booking: Booking; }) => {
             </div>
 
             <div className="mt-6">
-                <button className="w-full py-3 bg-primary-600 text-white font-extrabold rounded-3xl">
+                <Link href={"/all_reservations/reservation_details/id"} className="block text-center w-full py-3 bg-primary-600 text-white font-extrabold rounded-3xl">
                     عرض التفاصيل
-                </button>
+                </Link>
             </div>
         </div>
     );

@@ -17,8 +17,12 @@ interface SelectOptionProps {
     contentClassName?: string;
     onValueChange?: (value: string) => void;
     title: string;
+    titleClassName?: string;
     required?: boolean;
     icon?: React.ReactNode;
+    innerIcon?: React.ReactNode;
+    disabled?: boolean;
+    containerClassName?: string;
 }
 
 export function SelectOption({
@@ -28,8 +32,12 @@ export function SelectOption({
     contentClassName,
     onValueChange,
     title,
+    titleClassName,
     icon,
-    required = false
+    innerIcon,
+    required = false,
+    disabled = false,
+    containerClassName,
 }: SelectOptionProps) {
     const triggerRef = React.useRef<HTMLButtonElement>(null);
 
@@ -40,14 +48,18 @@ export function SelectOption({
     };
 
     return (
-        <div onClick={handleClick} className="cursor-pointer">
-            <Select onValueChange={onValueChange} dir="rtl">
+        <div onClick={handleClick} className={`${containerClassName} cursor-pointer`}>
+            <Select onValueChange={onValueChange} dir="rtl" disabled={disabled}>
                 <div className="flex items-center gap-3">
                     {icon}
                     <div className="flex flex-col w-full">
-                        <p className="text-black font-bold mb-1 text-start">{title} {required && <span className="text-red-500">*</span>}</p>
+                        <p className={`${titleClassName} text-black font-bold mb-1 text-start`}>{title} {required && <span className="text-red-500">*</span>}</p>
                         <SelectTrigger ref={triggerRef} className={`${triggerClassName} text-[#777E90] !appearance-none focus:outline-none`}>
-                            <SelectValue placeholder={placeholder} />
+                            <div className="flex items-center gap-2">
+
+                                {innerIcon}
+                                <SelectValue placeholder={placeholder} />
+                            </div>
                         </SelectTrigger>
                         <SelectContent className={contentClassName}>
                             {options.map((option) => (
