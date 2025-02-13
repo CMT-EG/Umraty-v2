@@ -15,7 +15,7 @@ import { User } from 'lucide-react';
 import gender from "@/assets/reservations/gender.svg";
 import nationality from "@/assets/reservations/nationality.svg";
 
-const UserDropdownDetails = ({ withVisa }) => {
+const UserDropdownDetails = ({ withVisa, setCurrentStep }) => {
     const [phoneValue, setPhoneValue] = useState({ phone_number: "", phone_code: "966" });
 
     const handleValueChange = (newValue: { phone_number: string; phone_code: string; }) => {
@@ -193,6 +193,7 @@ const UserDropdownDetails = ({ withVisa }) => {
                             </>
                         }
                     </div>
+                    <button type="button" className='bg-primary-600 rounded-2xl w-full py-2.5 text-white text-sm font-extrabold mt-8' onClick={() => setCurrentStep(2)}>التالي</button>
                 </AccordionContent>
             </AccordionItem>
         </Accordion>

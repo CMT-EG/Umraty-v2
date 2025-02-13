@@ -7,7 +7,7 @@ import HotelProgressSteps from '../../../features/reservations/components/HotelP
 import CurrentHotel from '@/features/reservations/components/CurrentHotel';
 import UserDropdownDetails from '@/features/reservations/components/UserDropdownDetails';
 
-const StepOneContent = () => {
+const StepOneContent = ({ setCurrentStep }) => {
     const [currentHotel, _] = React.useState<any>(1);
 
     return (
@@ -35,7 +35,7 @@ const StepOneContent = () => {
                         departureDate='الجمعة  13 سبتمبر'
                     />
                 </div>
-                <UserDropdownDetails withVisa={true} />
+                <UserDropdownDetails withVisa={true} setCurrentStep={setCurrentStep} />
             </div>
             <div className="w-[40%] flex flex-col gap-5">
                 <HotelInfoComponent
