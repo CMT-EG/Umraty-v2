@@ -4,19 +4,32 @@ import { REGEXP_ONLY_DIGITS } from 'input-otp';
 import Image from 'next/image';
 import React, { useState } from 'react';
 import verificationImage from "./assets/verification.svg";
+import { useMutation } from '@tanstack/react-query';
+import { verifyOTP } from '@/features/login/services/verifyOTP';
 
-export const OTPVerification = ({ setCurrentStep, handleBackButton }) => {
+export const OTPVerification = ({ setCurrentStep, handleBackButton, phoneNumber }) => {
     const [otpValue, setOtpValue] = useState('');
 
+    const { mutate, isPending, data } = useMutation({
+        mutationFn: () => {
+            return verifyOTP(otpValue, phoneNumber)
+        },
+        onSuccess: (data) => {
+            console.log("SUCCESS DATA:", data)
+            setCurrentStep()
+        }
+    })
+
+    console.log("RETUREND:", data)
     return (
         <DialogContent>
             <DialogHeader className='mt-12'>
                 <Image src={verificationImage} alt='phone number' width={110} height={110} className='mx-auto mb-4' />
                 <DialogTitle className='text-center text-2xl font-extrabold w-full'>تحقق من رقم هاتفك</DialogTitle>
                 <DialogDescription className='w-full text-center'>
-                    تم ارسال رمز تاكيد على رقم هاتفك, تحقق من هاتفك يرجى إدخاله أدناه
+                    تم ارسال رمز تاكيد على رقم هاتفك
                     <br />
-                    <span className='!mt-2'>+20 114 364 9865 <span className="!font-bold !text-primary-600 mx-2">تعديل</span></span>
+                    <span className='!mt-2'>{phoneNumber} <span className="!font-bold !text-primary-600 mx-2" onClick={handleBackButton}>تعديل</span></span>
                 </DialogDescription>
                 <div className="mx-auto !mt-6">
                     <InputOTP
@@ -38,7 +51,7 @@ export const OTPVerification = ({ setCurrentStep, handleBackButton }) => {
                         </InputOTPGroup>
                     </InputOTP>
                 </div>
-                <button type="button" className='bg-primary-600 rounded-3xl text-white font-bold py-3 text-sm !mt-6 !mb-3 w-full' onClick={setCurrentStep}>تأكيد</button>
+                <button type="button" className='bg-primary-600 rounded-3xl text-white font-bold py-3 text-sm !mt-6 !mb-3 w-full' onClick={() => mutate()}>تأكيد</button>
                 <button type="button" className='bg-transparent border border-primary-600 rounded-3xl text-primary-600 font-bold py-3 text-sm !mb-4 w-full' onClick={handleBackButton}>الرجوع</button>
                 <div className="flex justify-center gap-1 text-center">
                     <span className="text-[#878787] text-sm font-normal leading-normal">

@@ -9,7 +9,7 @@ import { cn } from "@/global/shadcn/lib/utils";
 import { Dialog, DialogContent } from "@/global/shadcn/ui/dialog";
 
 const Command = React.forwardRef<
-  React.ElementRef<typeof CommandPrimitive>,
+  HTMLDivElement, // Explicitly set the element type
   React.ComponentPropsWithoutRef<typeof CommandPrimitive>
 >(({ className, ...props }, ref) => (
   <CommandPrimitive
@@ -21,6 +21,7 @@ const Command = React.forwardRef<
     {...props}
   />
 ));
+
 Command.displayName = CommandPrimitive.displayName;
 
 const CommandDialog = ({ children, ...props }: DialogProps) => {
@@ -36,7 +37,7 @@ const CommandDialog = ({ children, ...props }: DialogProps) => {
 };
 
 const CommandInput = React.forwardRef<
-  React.ElementRef<typeof CommandPrimitive.Input>,
+  HTMLInputElement, // Explicitly define the element type
   React.ComponentPropsWithoutRef<typeof CommandPrimitive.Input>
 >(({ className, ...props }, ref) => (
   <div className="flex items-center border-b px-3" cmdk-input-wrapper="">
@@ -52,10 +53,11 @@ const CommandInput = React.forwardRef<
   </div>
 ));
 
+
 CommandInput.displayName = CommandPrimitive.Input.displayName;
 
 const CommandList = React.forwardRef<
-  React.ElementRef<typeof CommandPrimitive.List>,
+  HTMLDivElement, // Explicitly define the correct element type
   React.ComponentPropsWithoutRef<typeof CommandPrimitive.List>
 >(({ className, ...props }, ref) => (
   <CommandPrimitive.List
@@ -65,10 +67,11 @@ const CommandList = React.forwardRef<
   />
 ));
 
+
 CommandList.displayName = CommandPrimitive.List.displayName;
 
 const CommandEmpty = React.forwardRef<
-  React.ElementRef<typeof CommandPrimitive.Empty>,
+  HTMLDivElement, // Explicitly define the correct element type
   React.ComponentPropsWithoutRef<typeof CommandPrimitive.Empty>
 >((props, ref) => (
   <CommandPrimitive.Empty
@@ -78,10 +81,13 @@ const CommandEmpty = React.forwardRef<
   />
 ));
 
+CommandEmpty.displayName = "CommandEmpty"; // Optional but recommended
+
+
 CommandEmpty.displayName = CommandPrimitive.Empty.displayName;
 
 const CommandGroup = React.forwardRef<
-  React.ElementRef<typeof CommandPrimitive.Group>,
+  HTMLDivElement, // Correctly define the element type
   React.ComponentPropsWithoutRef<typeof CommandPrimitive.Group>
 >(({ className, ...props }, ref) => (
   <CommandPrimitive.Group
@@ -94,10 +100,11 @@ const CommandGroup = React.forwardRef<
   />
 ));
 
+
 CommandGroup.displayName = CommandPrimitive.Group.displayName;
 
 const CommandSeparator = React.forwardRef<
-  React.ElementRef<typeof CommandPrimitive.Separator>,
+  HTMLDivElement, // Explicitly define the ref type
   React.ComponentPropsWithoutRef<typeof CommandPrimitive.Separator>
 >(({ className, ...props }, ref) => (
   <CommandPrimitive.Separator
@@ -106,10 +113,11 @@ const CommandSeparator = React.forwardRef<
     {...props}
   />
 ));
+
 CommandSeparator.displayName = CommandPrimitive.Separator.displayName;
 
 const CommandItem = React.forwardRef<
-  React.ElementRef<typeof CommandPrimitive.Item>,
+  HTMLDivElement, // Explicitly define the ref type
   React.ComponentPropsWithoutRef<typeof CommandPrimitive.Item>
 >(({ className, ...props }, ref) => (
   <CommandPrimitive.Item
@@ -121,6 +129,7 @@ const CommandItem = React.forwardRef<
     {...props}
   />
 ));
+
 
 CommandItem.displayName = CommandPrimitive.Item.displayName;
 

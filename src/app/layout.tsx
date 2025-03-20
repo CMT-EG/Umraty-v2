@@ -28,10 +28,12 @@ export default function RootLayout({
       <body
         className={`${alexandria.variable} ${almarai.variable} font-almarai antialiased min-h-dvh flex flex-col items-stretch`}
       >
-        <TopBar />
-        <NavBar variant="white" />
-        <Providers>{children}</Providers>
-        <Footer />
+        <Providers>
+          <TopBar />
+          <NavBar variant="white" />
+          {children}
+          <Footer />
+        </Providers>
       </body>
     </html>
   );

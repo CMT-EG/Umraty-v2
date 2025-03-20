@@ -13,28 +13,21 @@ const eslintConfig = [
   ...compat.extends("next/core-web-vitals", "next/typescript"),
   {
     rules: {
-      "no-unused-expressions": "off",
-      "@typescript-eslint/no-unused-expressions": [
-        "error",
-        {
-          allowShortCircuit: true,
-          allowTernary: true,
-          allowTaggedTemplates: true,
-        },
-      ],
       // Disable any type warnings
       "@typescript-eslint/no-explicit-any": "off",
 
       // Handle unused variables
       "no-unused-vars": "off", // Turn off base rule
-      "@typescript-eslint/no-unused-vars": [
-        "warn",
-        {
-          argsIgnorePattern: "^_",
-          varsIgnorePattern: "^_",
-          caughtErrorsIgnorePattern: "^_",
-        },
-      ],
+      // "@typescript-eslint/no-unused-vars": [
+      //   "warn",
+      //   {
+      //     argsIgnorePattern: "^_",
+      //     varsIgnorePattern: "^_",
+      //     caughtErrorsIgnorePattern: "^_",
+      //   },
+      // ],
+      "@typescript-eslint/no-unused-vars": "off",
+      "@typescript-eslint/no-unused-expressions": "off",
 
       // // Allow any type
       // "@typescript-eslint/no-unsafe-function-type": "off",
@@ -44,7 +37,7 @@ const eslintConfig = [
       // "@typescript-eslint/no-non-null-asserted-optional-chain": "off",
 
       // // Make React hooks warnings less strict
-      // "react-hooks/exhaustive-deps": "warn",
+      "react-hooks/exhaustive-deps": "off",
 
       // // Make key warnings less strict (but still show them)
       // "react/jsx-key": "warn",

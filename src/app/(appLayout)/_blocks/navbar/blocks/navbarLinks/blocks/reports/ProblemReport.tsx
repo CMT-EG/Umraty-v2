@@ -1,11 +1,12 @@
 import { DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/global/shadcn/ui/dialog';
 import Image from 'next/image';
-import React from 'react';
+import React, { useState } from 'react';
 import reportFlag from "./assets/problem_report.svg";
 import { SelectOption } from '@/global/components/selectOption/SelectOption';
 import { fakeData } from '@/app/(home)/_blocks/hero/_blocks/reservationBox/constants/data';
 
 export const ProblemReport = ({ setCurrentStep }) => {
+    const [data, setData] = useState({})
     return (
         <DialogContent className='max-w-[620px]'>
             <DialogHeader className='mt-12'>

@@ -12,10 +12,11 @@ import { ProblemReport } from "../reports/ProblemReport";
 import { SuccessPopup } from "../reports/SuccessPopup";
 import { NotAuthorizedPopup } from "./_blocks/NotAuthorizedPopup";
 import { useNavbarLinks } from "./hooks/useNavbarLinks";
+import { useState } from "react";
 
 export default function NavbarLinks({ open = false }: { open?: boolean; }) {
   const { pathname, showSignIn, currentStep, handleBackButton, handleLogout, setCurrentStep } = useNavbarLinks();
-
+  const [phoneNumber, setPhoneNumber] = useState("")
   return (
     <ul
       className={cn(
@@ -64,11 +65,33 @@ export default function NavbarLinks({ open = false }: { open?: boolean; }) {
             >
               الإبلاغ
             </DialogTrigger>
-            {currentStep === 1 ? <PhonePopup setCurrentStep={() => setCurrentStep(2)} />
-              : currentStep === 2 ? <OTPVerification setCurrentStep={() => setCurrentStep(3)} handleBackButton={handleBackButton} />
+            {currentStep === 1 ? <PhonePopup  setPhoneNumber={setPhoneNumber} setCurrentStep={() => setCurrentStep(2)} />
+              : currentStep === 2 ? <OTPVerification phoneNumber={phoneNumber} setCurrentStep={() => setCurrentStep(3)} handleBackButton={handleBackButton} />
                 : currentStep === 3 ? <ProblemReport setCurrentStep={() => setCurrentStep(4)} />
                   : currentStep === 4 ? <SuccessPopup />
                     : null}
+            {showSignIn ? (
+          <Button className="sm:px-5 px-3 rounded-full text-white" asChild>
+            <DialogTrigger onClick={() => setCurrentStep(1)}>
+              <GoPerson
+                className="sm:size-5 size-4 sm:me-2 me-1"
+                strokeWidth={1}
+              />
+              <span>تسجيل الدخول</span>
+            </DialogTrigger>
+          </Button>
+        ) : (
+          <Button
+            className="sm:px-5 px-3 rounded-full text-white"
+            onClick={handleLogout}
+          >
+            <GoPerson
+              className="sm:size-5 size-4 sm:me-2 me-1"
+              strokeWidth={1}
+            />
+            <span>تسجيل الخروج</span>
+          </Button>
+        )}
           </Dialog>
         </li>
         <li>
@@ -83,28 +106,7 @@ export default function NavbarLinks({ open = false }: { open?: boolean; }) {
           </Link>
         </li>
         <LangChanger />
-        {showSignIn ? (
-          <Button className="sm:px-5 px-3 rounded-full text-white" asChild>
-            <Link href={"/login"}>
-              <GoPerson
-                className="sm:size-5 size-4 sm:me-2 me-1"
-                strokeWidth={1}
-              />
-              <span>تسجيل الدخول</span>
-            </Link>
-          </Button>
-        ) : (
-          <Button
-            className="sm:px-5 px-3 rounded-full text-white"
-            onClick={handleLogout}
-          >
-            <GoPerson
-              className="sm:size-5 size-4 sm:me-2 me-1"
-              strokeWidth={1}
-            />
-            <span>تسجيل الخروج</span>
-          </Button>
-        )}
+        
       </div>
     </ul>
   );
